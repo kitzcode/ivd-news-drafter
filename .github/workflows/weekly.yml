@@ -1,0 +1,45 @@
+name: weekly-draft-run
+
+# Runs the drafter weekly and commits the refreshed docs/drafts.json,
+# which the GitHub Pages site reads. The API key lives only in Actions
+# secrets and is used server-side here; it is never exposed to the site.
+
+on:
+  schedule:
+    # Mondays 12:00 UTC (~7-8am ET), so drafts are ready for Tue/Wed posting.
+    # Cron timing on Actions is best-effort, not exact. Adjust as you like.
+    - cron: "0 12 * * 1"
+  workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write          # needed to commit the refreshed drafts.json
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run drafter
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python main.py
+
+      - name: Commit refreshed drafts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/drafts.json drafts/ seen.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "weekly drafts: $(date -u +%Y-%m-%d)"
+            git push
+          fi

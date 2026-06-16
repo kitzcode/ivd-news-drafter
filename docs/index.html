@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draft Review</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+  :root{
+    --ink:#14161B;--surface:#1B1E25;--raised:#22262F;--line:#2E333D;
+    --text:#E7E9EE;--muted:#9AA1AD;--amber:#F5B800;--amber-dim:rgba(245,184,0,.14);
+    --clay:#D07A52;--clay-dim:rgba(208,122,82,.14);--green:#7BC47F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',system-ui,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;padding:0 0 70px}
+  .top{border-bottom:1px solid var(--line);background:rgba(20,22,27,.92);
+    position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+  .top-in{max-width:760px;margin:0 auto;padding:20px}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--amber)}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.01em}
+  h1 span{color:var(--amber)}
+  .meta{color:var(--muted);font-size:13px;margin-top:4px;font-family:'IBM Plex Mono',monospace}
+  main{max-width:760px;margin:0 auto;padding:18px 20px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    margin-top:14px;padding:16px 18px}
+  .card.low{border-color:rgba(208,122,82,.4)}
+  .title{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:16px;margin-bottom:6px}
+  .badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+  .b{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;
+    padding:2px 8px;border-radius:5px;border:1px solid var(--line);color:var(--muted)}
+  .b.src{color:var(--amber);border-color:rgba(245,184,0,.4);background:var(--amber-dim)}
+  .b.low{color:var(--clay);border-color:rgba(208,122,82,.45);background:var(--clay-dim)}
+  .why{color:var(--muted);font-size:13px;margin-bottom:10px;border-left:2px solid var(--amber);padding-left:10px}
+  .draft{background:var(--ink);border:1px solid var(--line);border-radius:9px;
+    padding:13px 14px;white-space:pre-wrap;font-size:14.5px;color:#dfe2e8}
+  .row{display:flex;gap:10px;align-items:center;margin-top:11px;flex-wrap:wrap}
+  button.copy{background:var(--amber);border:none;color:#1a1500;font-weight:600;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:8px 14px;border-radius:8px;cursor:pointer}
+  button.copy:active{transform:translateY(1px)}
+  button.copy.done{background:var(--green);color:#062b08}
+  a.src-link{color:var(--muted);font-size:12.5px;font-family:'IBM Plex Mono',monospace;text-decoration:none}
+  a.src-link:hover{color:var(--amber);text-decoration:underline}
+  details{margin-top:11px}
+  summary{cursor:pointer;color:var(--muted);font-size:12.5px;font-family:'IBM Plex Mono',monospace}
+  .sumtext{color:#cfd3da;font-size:13.5px;margin-top:7px}
+  .empty{text-align:center;color:var(--muted);font-family:'IBM Plex Mono',monospace;
+    font-size:13px;padding:60px 20px}
+  .note{max-width:760px;margin:24px auto 0;padding:0 20px;color:var(--muted);
+    font-size:12px;font-family:'IBM Plex Mono',monospace}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <div class="eyebrow"><span class="dot"></span> IVD / Diagnostics Drafts</div>
+  <h1>This week\u2019s <span>drafts</span></h1>
+  <div class="meta" id="meta">loading\u2026</div>
+</div></div>
+<main id="list"></main>
+<div class="note">Review only. Pick one, copy it, post it yourself. Always open the source and check facts before posting. Research/informational, not legal advice.</div>
+
+<script>
+function esc(s){return (s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+
+async function load(){
+  const meta=document.getElementById('meta'), list=document.getElementById('list');
+  let data;
+  try{
+    const res=await fetch('./drafts.json',{cache:'no-store'});
+    data=await res.json();
+  }catch(e){
+    meta.textContent='Could not load drafts.json';
+    list.innerHTML='<div class="empty">No drafts file found yet. Run the tool to generate one.</div>';
+    return;
+  }
+  meta.textContent=`generated ${data.generated} \u00b7 ${data.count} draft(s)`;
+  if(!data.drafts || !data.drafts.length){
+    list.innerHTML='<div class="empty">No relevant items this run.</div>';return;
+  }
+  data.drafts.forEach((d,i)=>{
+    const low = d.confidence==='low';
+    const card=document.createElement('article');
+    card.className='card'+(low?' low':'');
+    card.innerHTML=`
+      <div class="title">${esc(d.title)}</div>
+      <div class="badges">
+        <span class="b src">${esc(d.source)}</span>
+        ${low?'<span class="b low">low confidence</span>':''}
+        ${d.source_date?`<span class="b">${esc(d.source_date)}</span>`:''}
+      </div>
+      ${d.why?`<div class="why">${esc(d.why)}</div>`:''}
+      <div class="draft" id="draft-${i}">${esc(d.draft)}</div>
+      <div class="row">
+        <button class="copy" data-i="${i}">Copy draft</button>
+        <a class="src-link" href="${esc(d.url)}" target="_blank" rel="noopener">open source \u2197</a>
+      </div>
+      ${d.summary?`<details><summary>summary</summary><div class="sumtext">${esc(d.summary)}</div></details>`:''}`;
+    list.appendChild(card);
+  });
+  list.addEventListener('click',ev=>{
+    const btn=ev.target.closest('button.copy'); if(!btn) return;
+    const text=document.getElementById('draft-'+btn.dataset.i).textContent;
+    navigator.clipboard.writeText(text).then(()=>{
+      btn.textContent='Copied \u2713'; btn.classList.add('done');
+      setTimeout(()=>{btn.textContent='Copy draft';btn.classList.remove('done');},1600);
+    });
+  });
+}
+load();
+</script>
+</body>
+</html>
