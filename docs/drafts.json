@@ -1,86 +1,16 @@
 {
   "generated": "2026-06-16",
-  "count": 8,
+  "count": 1,
   "drafts": [
     {
-      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the Spinal Muscular Atrophy Newborn Screening Test System",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/06/11/2026-11740/medical-devices-immunology-and-microbiology-devices-classification-of-the-spinal-muscular-atrophy",
-      "why": "FDA classification of newborn screening IVD as Class II with special controls",
-      "confidence": "high",
-      "summary": "FDA is classifying the Spinal Muscular Atrophy newborn screening test system as Class II (special controls). The agency determined this classification provides reasonable assurance of safety and effectiveness, and expects it to reduce regulatory burdens while improving patient access to these devices.",
-      "draft": "FDA just classified the SMA newborn screening test system as Class II with special controls. For a device used in newborn screening, that's a meaningful regulatory moment. Class II means it cleared the bar for reasonable assurance of safety and effectiveness without needing premarket approval. As someone who works in IVD, I always notice when a newborn screening assay gets a formal classification home. It tends to matter for what gets developed next (and for what labs can actually access). Anyway, worth a read if you're in this space.",
-      "source_date": "2026-06-11"
-    },
-    {
-      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the Simple Point-of-Care Device to Directly Detect SARS-CoV-2 Viral Targets From Clinical Specimens in Near-Patient Settings",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/06/11/2026-11739/medical-devices-immunology-and-microbiology-devices-classification-of-the-simple-point-of-care",
-      "why": "FDA classification of SARS-CoV-2 point-of-care device as Class II with special controls",
-      "confidence": "high",
-      "summary": "FDA has formally classified simple point-of-care SARS-CoV-2 detection devices as Class II (special controls). The agency says this classification provides reasonable assurance of safety and effectiveness while reducing regulatory burden and improving patient access to these near-patient testing devices.",
-      "draft": "FDA just formally classified simple point-of-care SARS-CoV-2 detection devices as Class II (special controls). Not a surprise, exactly, but it's the kind of regulatory housekeeping that actually matters if you work in this space. Class II with special controls is the middle path: more oversight than Class I, but a lighter lift than PMA. The framing in the Federal Register notice is that it both ensures safety and reduces regulatory burden. (Those two things can coexist, though it doesn't always feel that way when you're in the middle of a submission.) Anyway, it's now codified, which is the part that makes it real.",
-      "source_date": "2026-06-11"
-    },
-    {
-      "title": "Announcement of the Approval of COLA as an Accreditation Organization for the Specialty of Histocompatibility Under the Clinical Laboratory Improvement Amendments of 1988",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/06/10/2026-11618/announcement-of-the-approval-of-cola-as-an-accreditation-organization-for-the-specialty-of",
-      "why": "CLIA accreditation organization approval for histocompatibility specialty",
-      "confidence": "high",
-      "summary": "The Federal Register announced that COLA (Commission on Laboratory Accreditation) has been approved as an accreditation organization for the CLIA specialty of Histocompatibility. CMS determined COLA meets or exceeds applicable CLIA requirements and granted deeming authority for 5 years.",
-      "draft": "COLA just got deeming authority under CLIA for histocompatibility. Five-year approval, announced in the Federal Register this month.\n\nHistocompatibility accreditation has historically run through a pretty short list of organizations, so adding another pathway is at least worth noticing if you work in transplant or HLA testing.\n\nNot sure yet what labs will do with it practically (there are always switching costs), but I'll be watching.",
-      "source_date": "2026-06-10"
-    },
-    {
-      "title": "FDA 510(k): LIAISON Murex HBsAg Qual; LIAISON XL; LIAISON diluteX",
+      "title": "FDA 510(k): Female Culture Device; Male Culture Device; Transfer Device; Access Device",
       "source": "openFDA 510(k)",
-      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K260770",
-      "why": "FDA 510(k) clearance for microbiology IVD panel (HBsAg and related devices)",
+      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K252899",
+      "why": "Direct FDA 510(k) clearance for clinical chemistry diagnostic device",
       "confidence": "high",
-      "summary": "FDA 510(k) clearance for DiaSorin's LIAISON Murex HBsAg Qual, a qualitative hepatitis B surface antigen test running on the LIAISON XL analyzer with LIAISON diluteX diluent, cleared under the Microbiology panel (K260770).",
-      "draft": "DiaSorin picked up 510(k) clearance (K260770) for the LIAISON Murex HBsAg Qual \u2014 a qualitative HBsAg assay on the LIAISON XL, with a dedicated diluent in the kit. Microbiology panel, so squarely in the serology/infectious disease space I spend time in.\n\nNothing earth-shattering here. HBsAg testing is well-established. But I do notice when new clearances come through for platforms I work around, just to keep a mental map of what's on what instrument. (Sometimes that matters more than it sounds like it should.)",
-      "source_date": "2026-06-04"
-    },
-    {
-      "title": "FDA 510(k): Fastep COVID-19 Antigen Pen Home Test; Fastep COVID-19 Antigen Pen Test",
-      "source": "openFDA 510(k)",
-      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K260754",
-      "why": "FDA 510(k) clearance and CLIA implications for COVID-19 antigen point-of-care test",
-      "confidence": "high",
-      "summary": "FDA 510(k) clearance for the Fastep COVID-19 Antigen Pen Home Test and Fastep COVID-19 Antigen Pen Test, submitted by Assure Tech., LLC (K260754), under the Microbiology panel.",
-      "draft": "Still seeing COVID antigen tests coming through 510(k). This one's the Fastep COVID-19 Antigen Pen, cleared for both home and professional use (Assure Tech., LLC, K260754). The \"pen\" form factor is the part that caught my eye \u2014 curious what the actual device looks like compared to the lateral flow strips we've all been staring at for the past few years. Anyway. Still a live category, apparently.",
-      "source_date": "2026-06-05"
-    },
-    {
-      "title": "AMDI Fast PCR System, Mini Respiratory Panel Obtain FDA 510(k) Clearance, CLIA Waiver",
-      "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/regulatory-news-fda-approvals/amdi-fast-pcr-system-mini-respiratory-panel-obtain-fda-510k-clearance",
-      "why": "FDA 510(k) clearance and CLIA waiver for PCR-based respiratory point-of-care system",
-      "confidence": "high",
-      "summary": "AMDI's Fast PCR System and Mini Respiratory Panel have received both FDA 510(k) clearance and a CLIA waiver. This means the test can be run in non-laboratory settings by non-specialists. No further details about targets, turnaround time, or intended setting are provided in the source.",
-      "draft": "The AMDI Fast PCR System and Mini Respiratory Panel just got FDA 510(k) clearance and a CLIA waiver. The CLIA waiver is the part I always watch for \u2014 that's what moves a PCR test out of the lab and into clinics, urgent cares, and similar settings where the person running it isn't a lab tech. Respiratory panels at point of care have been an interesting space since COVID and it's still moving. I don't know enough about this specific system yet to have a real opinion on it, but it caught my eye this morning.",
-      "source_date": ""
-    },
-    {
-      "title": "FDA Designates Zepto Life Technologies Invasive Mold Blood Test Breakthrough Device",
-      "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/regulatory-news-fda-approvals/fda-designates-zepto-life-technologies-invasive-mold-blood-test",
-      "why": "FDA Breakthrough Device designation for invasive mold blood test IVD",
-      "confidence": "high",
-      "summary": "The FDA granted Breakthrough Device designation to Zepto Life Technologies for a blood test for invasive mold infections. This designation is meant to speed up development and review of diagnostics that address serious conditions with unmet needs.",
-      "draft": "FDA just gave Breakthrough Device designation to Zepto Life Technologies for a blood test that detects invasive mold infections from blood.\n\nInvasive mold is one of those things that's genuinely hard to catch early, and the current diagnostic options aren't great (lots of imaging, bronchoscopy, empiric treatment). A blood-based test would be a different path.\n\nBreakthrough designation doesn't mean it's cleared, just that FDA will work more closely with them through development and review. Still early. But it's the kind of thing I keep a tab open on when I see it.",
-      "source_date": ""
-    },
-    {
-      "title": "Cepheid Gets CE-IVDR Marking for Multiplex Gastrointestinal Panel",
-      "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/regulatory-news-fda-approvals/cepheid-gets-ce-ivdr-marking-multiplex-gastrointestinal-panel",
-      "why": "CE-IVDR regulatory marking for multiplex molecular diagnostic panel",
-      "confidence": "high",
-      "summary": "Cepheid has received CE-IVDR marking for a multiplex gastrointestinal panel. CE-IVDR is the newer, stricter EU in vitro diagnostic regulation that replaced the older CE-IVD marking. Getting this designation means the test has cleared a more rigorous conformity assessment process.",
-      "draft": "Cepheid got CE-IVDR marking for their multiplex GI panel. Worth noting if you work in IVD in Europe, because CE-IVDR (as opposed to the older CE-IVD) is the stricter standard that's been rolling in under the EU's updated IVD regulation. Getting there with a multiplex panel isn't a small lift on the regulatory side. I mostly track this stuff because it shows up in the data infrastructure questions eventually, like what metadata travels with a result once the regulatory goalposts have moved.",
-      "source_date": ""
+      "summary": "FDA 510(k) clearance granted to Zhejiang Kindly Medical Device Co., Ltd. for a set of devices including a Female Culture Device, Male Culture Device, Transfer Device, and Access Device, under the Clinical Chemistry panel. Clearance number K252899.",
+      "draft": "A 510(k) just cleared for a female culture device, male culture device, transfer device, and access device (all one submission, K252899). Applicant is Zhejiang Kindly Medical Device Co., Ltd., cleared under the Clinical Chemistry panel.\n\nI mostly notice these when they're adjacent to something I'm working on. This one caught my eye because the device grouping is a little unusual to see bundled together in a single clearance. Could be nothing, could be worth a closer read of the predicate.",
+      "source_date": "2026-06-02"
     }
   ]
 }
