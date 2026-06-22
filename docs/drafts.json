@@ -1,16 +1,16 @@
 {
-  "generated": "2026-06-16",
+  "generated": "2026-06-22",
   "count": 1,
   "drafts": [
     {
-      "title": "FDA 510(k): Female Culture Device; Male Culture Device; Transfer Device; Access Device",
-      "source": "openFDA 510(k)",
-      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K252899",
-      "why": "Direct FDA 510(k) clearance for clinical chemistry diagnostic device",
+      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the Simple In Vitro Diagnostic Device for the Detection of Secreted Proteins From Bacillus Species (spp.) in Human Clinical Samples",
+      "source": "Federal Register",
+      "url": "https://www.federalregister.gov/documents/2026/06/22/2026-12443/medical-devices-immunology-and-microbiology-devices-classification-of-the-simple-in-vitro-diagnostic",
+      "why": "FDA IVD device classification order for Bacillus protein detection\u2014direct regulatory action on diagnostic devices",
       "confidence": "high",
-      "summary": "FDA 510(k) clearance granted to Zhejiang Kindly Medical Device Co., Ltd. for a set of devices including a Female Culture Device, Male Culture Device, Transfer Device, and Access Device, under the Clinical Chemistry panel. Clearance number K252899.",
-      "draft": "A 510(k) just cleared for a female culture device, male culture device, transfer device, and access device (all one submission, K252899). Applicant is Zhejiang Kindly Medical Device Co., Ltd., cleared under the Clinical Chemistry panel.\n\nI mostly notice these when they're adjacent to something I'm working on. This one caught my eye because the device grouping is a little unusual to see bundled together in a single clearance. Could be nothing, could be worth a closer read of the predicate.",
-      "source_date": "2026-06-02"
+      "summary": "FDA has classified a simple IVD device for detecting secreted proteins from Bacillus species in human clinical samples as Class II (special controls). The agency determined Class II classification provides reasonable assurance of safety and effectiveness while reducing regulatory burden and improving patient access.",
+      "draft": "FDA just classified a simple IVD for detecting secreted proteins from Bacillus spp. in human clinical samples as Class II (special controls). That's a lower bar than Class III, which matters a lot for how quickly something like this can actually get to a lab.\n\nThe framing in the Federal Register is pretty standard (\"reasonable assurance of safety and effectiveness\"), but the Bacillus detection angle is what caught my eye. Not something I see classified every day.\n\nI'll be reading the special controls language when I get a chance. That's usually where the interesting requirements actually live.",
+      "source_date": "2026-06-22"
     }
   ]
 }
