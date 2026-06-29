@@ -1,16 +1,26 @@
 {
-  "generated": "2026-06-22",
-  "count": 1,
+  "generated": "2026-06-29",
+  "count": 2,
   "drafts": [
     {
-      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the Simple In Vitro Diagnostic Device for the Detection of Secreted Proteins From Bacillus Species (spp.) in Human Clinical Samples",
+      "title": "Revocation of Three Authorizations of Emergency Use of In Vitro Diagnostic Devices for Detection and/or Diagnosis of COVID-19; Availability",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/06/22/2026-12443/medical-devices-immunology-and-microbiology-devices-classification-of-the-simple-in-vitro-diagnostic",
-      "why": "FDA IVD device classification order for Bacillus protein detection\u2014direct regulatory action on diagnostic devices",
+      "url": "https://www.federalregister.gov/documents/2026/06/26/2026-12906/revocation-of-three-authorizations-of-emergency-use-of-in-vitro-diagnostic-devices-for-detection",
+      "why": "FDA revocation of COVID-19 diagnostic EUAs\u2014directly relevant to IVD regulatory actions and emergency use pathways",
       "confidence": "high",
-      "summary": "FDA has classified a simple IVD device for detecting secreted proteins from Bacillus species in human clinical samples as Class II (special controls). The agency determined Class II classification provides reasonable assurance of safety and effectiveness while reducing regulatory burden and improving patient access.",
-      "draft": "FDA just classified a simple IVD for detecting secreted proteins from Bacillus spp. in human clinical samples as Class II (special controls). That's a lower bar than Class III, which matters a lot for how quickly something like this can actually get to a lab.\n\nThe framing in the Federal Register is pretty standard (\"reasonable assurance of safety and effectiveness\"), but the Bacillus detection angle is what caught my eye. Not something I see classified every day.\n\nI'll be reading the special controls language when I get a chance. That's usually where the interesting requirements actually live.",
-      "source_date": "2026-06-22"
+      "summary": "FDA revoked three COVID-19 EUAs for IVD tests from BD, InBios, and Roche Diagnostics. The revocations were requested by the authorization holders themselves, not initiated by FDA. Affected tests include a rapid antigen test, a neutralizing antibody ELISA, and a serology assay.",
+      "draft": "FDA just revoked three COVID-19 EUAs \u2014 BD's Veritor rapid antigen test, InBios's neutralizing antibody ELISA, and Roche's Elecsys anti-SARS-CoV-2. All three were revoked at the request of the authorization holders, not by FDA on its own. That detail catches my eye (it's easy to assume these things get pulled from the top down). Companies asking to close out their own EUAs feels like a different, quieter kind of end to that chapter. Not sure what the business reasoning was for each one, but from a diagnostics housekeeping standpoint, at least the paperwork is tidy.",
+      "source_date": "2026-06-26"
+    },
+    {
+      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the SARS-CoV-2 Serology Test",
+      "source": "Federal Register",
+      "url": "https://www.federalregister.gov/documents/2026/06/26/2026-12902/medical-devices-immunology-and-microbiology-devices-classification-of-the-sars-cov-2-serology-test",
+      "why": "FDA device classification of SARS-CoV-2 serology test as Class II with special controls\u2014key regulatory classification decision for IVD",
+      "confidence": "high",
+      "summary": "FDA is formally classifying SARS-CoV-2 serology tests as Class II devices (special controls). This moves them out of the temporary emergency authorization framework into the standard regulatory pathway. The stated goals are safety/effectiveness assurance and reducing regulatory burden to improve patient access.",
+      "draft": "FDA just finalized the classification of SARS-CoV-2 serology tests as Class II devices with special controls. If you work in IVD this is one of those quiet regulatory moves that actually matters \u2014 it shifts these tests from the emergency-era framework into the normal pathway, with codified language and defined special controls.\n\nNot a surprise at this point, but it's good to see it land in the Federal Register as a real rule. (The 'reducing regulatory burden' framing is doing some work in that notice, as it always does.)\n\nAnyway, worth a read if you make or use these tests.",
+      "source_date": "2026-06-26"
     }
   ]
 }
