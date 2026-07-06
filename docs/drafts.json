@@ -1,26 +1,16 @@
 {
-  "generated": "2026-06-29",
-  "count": 2,
+  "generated": "2026-07-06",
+  "count": 1,
   "drafts": [
     {
-      "title": "Revocation of Three Authorizations of Emergency Use of In Vitro Diagnostic Devices for Detection and/or Diagnosis of COVID-19; Availability",
+      "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Administrative Practices and Procedures; Formal Hearings",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/06/26/2026-12906/revocation-of-three-authorizations-of-emergency-use-of-in-vitro-diagnostic-devices-for-detection",
-      "why": "FDA revocation of COVID-19 diagnostic EUAs\u2014directly relevant to IVD regulatory actions and emergency use pathways",
-      "confidence": "high",
-      "summary": "FDA revoked three COVID-19 EUAs for IVD tests from BD, InBios, and Roche Diagnostics. The revocations were requested by the authorization holders themselves, not initiated by FDA. Affected tests include a rapid antigen test, a neutralizing antibody ELISA, and a serology assay.",
-      "draft": "FDA just revoked three COVID-19 EUAs \u2014 BD's Veritor rapid antigen test, InBios's neutralizing antibody ELISA, and Roche's Elecsys anti-SARS-CoV-2. All three were revoked at the request of the authorization holders, not by FDA on its own. That detail catches my eye (it's easy to assume these things get pulled from the top down). Companies asking to close out their own EUAs feels like a different, quieter kind of end to that chapter. Not sure what the business reasoning was for each one, but from a diagnostics housekeeping standpoint, at least the paperwork is tidy.",
-      "source_date": "2026-06-26"
-    },
-    {
-      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the SARS-CoV-2 Serology Test",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/06/26/2026-12902/medical-devices-immunology-and-microbiology-devices-classification-of-the-sars-cov-2-serology-test",
-      "why": "FDA device classification of SARS-CoV-2 serology test as Class II with special controls\u2014key regulatory classification decision for IVD",
-      "confidence": "high",
-      "summary": "FDA is formally classifying SARS-CoV-2 serology tests as Class II devices (special controls). This moves them out of the temporary emergency authorization framework into the standard regulatory pathway. The stated goals are safety/effectiveness assurance and reducing regulatory burden to improve patient access.",
-      "draft": "FDA just finalized the classification of SARS-CoV-2 serology tests as Class II devices with special controls. If you work in IVD this is one of those quiet regulatory moves that actually matters \u2014 it shifts these tests from the emergency-era framework into the normal pathway, with codified language and defined special controls.\n\nNot a surprise at this point, but it's good to see it land in the Federal Register as a real rule. (The 'reducing regulatory burden' framing is doing some work in that notice, as it always does.)\n\nAnyway, worth a read if you make or use these tests.",
-      "source_date": "2026-06-26"
+      "url": "https://www.federalregister.gov/documents/2026/07/06/2026-13534/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+      "why": "",
+      "confidence": "low",
+      "summary": "The FDA has submitted a proposed information collection to the OMB for review under the Paperwork Reduction Act of 1995, related to administrative practices and procedures for formal hearings.",
+      "draft": "The FDA submitted a proposed information collection to OMB for review under the Paperwork Reduction Act. It covers administrative practices and procedures for formal hearings.\n\nNot the flashiest regulatory notice. But in diagnostics, these procedural updates occasionally touch how submissions get handled, and I've learned (sometimes the hard way) that the boring-sounding ones are worth a quick read.",
+      "source_date": "2026-07-06"
     }
   ]
 }
