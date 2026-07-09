@@ -129,38 +129,32 @@ def fetch_openfda_enforcement():
     return items
 
 
-def fetch_genomeweb():
+def _scrape_headlines(url, domain, source_label, max_items):
     """
-    Pull recent headlines + links from the GenomeWeb POC category page.
-    Headlines only -- never article bodies. The post draft is original
-    commentary that links back to the source.
+    Pull recent headlines + links from a category page. Headlines only -- never
+    article bodies. The post draft is original commentary that links back.
 
-    CAVEATS (see README):
-      - GenomeWeb is a subscription publication. Confirm their ToS / robots.txt
-        permit automated access before you rely on this.
-      - The page may be JS-rendered or partly paywalled; if it returns few/no
-        items under --dry-run, requests can't run JS and this approach won't work.
-      - Reliable publish dates aren't available without fetching each article, so
-        this returns the most-recent headlines from the page (date left blank) and
-        leans on the seen-cache to avoid repeats.
+    CAVEATS (see README): these are subscription publications. Confirm ToS /
+    robots.txt permit automated access. Pages may be JS-rendered or paywalled; if
+    a page returns few/no items, `requests` can't run JS and this won't work.
+    Reliable publish dates aren't available without fetching each article, so this
+    returns the most-recent headlines (date left blank) and leans on the seen-cache
+    to avoid repeats.
     """
-    cfg = config.SOURCES["genomeweb"]
-    if not cfg.get("enabled"):
-        return []
     try:
         from bs4 import BeautifulSoup
     except ImportError:
-        print("  [warn] beautifulsoup4 not installed; skipping genomeweb "
+        print(f"  [warn] beautifulsoup4 not installed; skipping {source_label} "
               "(run: pip install beautifulsoup4)")
         return []
 
     headers = {"User-Agent": "Mozilla/5.0 (personal news monitor)"}
     try:
-        r = requests.get(cfg["url"], headers=headers, timeout=config.REQUEST_TIMEOUT)
+        r = requests.get(url, headers=headers, timeout=config.REQUEST_TIMEOUT)
         r.raise_for_status()
         soup = BeautifulSoup(r.text, "html.parser")
     except Exception as e:
-        print(f"  [warn] genomeweb fetch failed: {e}")
+        print(f"  [warn] {source_label} fetch failed: {e}")
         return []
 
     skip_segments = ("/about", "/subscribe", "/login", "/topic", "/contact",
@@ -172,8 +166,8 @@ def fetch_genomeweb():
         if len(text) < 25:               # filter nav/buttons; keep real headlines
             continue
         if href.startswith("/"):
-            href = "https://www.genomeweb.com" + href
-        if "genomeweb.com" not in href or href in seen_urls:
+            href = f"https://www.{domain}" + href
+        if domain not in href or href in seen_urls:
             continue
         if any(seg in href for seg in skip_segments):
             continue
@@ -182,12 +176,27 @@ def fetch_genomeweb():
             "title": text,
             "summary": text,            # headline only
             "url": href,
-            "source": "GenomeWeb (POC)",
+            "source": source_label,
             "date": "",                 # approximate; see docstring
         })
-        if len(items) >= cfg["max_items"]:
+        if len(items) >= max_items:
             break
     return items
+
+
+def fetch_genomeweb():
+    cfg = config.SOURCES["genomeweb"]
+    if not cfg.get("enabled"):
+        return []
+    return _scrape_headlines(cfg["url"], "genomeweb.com", "GenomeWeb (POC)",
+                             cfg["max_items"])
+
+
+def fetch_360dx():
+    cfg = config.SOURCES["360dx"]
+    if not cfg.get("enabled"):
+        return []
+    return _scrape_headlines(cfg["url"], "360dx.com", "360Dx", cfg["max_items"])
 
 
 def fetch_rss():
@@ -237,7 +246,7 @@ def fetch_all():
     """Run every enabled source, apply the date window, return the combined list."""
     items = []
     for fn in (fetch_federal_register, fetch_openfda_510k, fetch_openfda_enforcement,
-               fetch_genomeweb, fetch_rss):
+               fetch_genomeweb, fetch_360dx, fetch_rss):
         got = [it for it in fn() if _within_window(it)]
         print(f"  {fn.__name__}: {len(got)} item(s)")
         items.extend(got)

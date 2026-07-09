@@ -82,6 +82,9 @@ def score_and_select(items, max_drafts=None):
             it["why"] = p.get("why", "")
             it["confidence"] = p.get("confidence", "low")
             selected.append(it)
+        else:
+            print(f"  [warn] dropped pick with invalid index {idx!r} "
+                  f"(valid range 0..{len(items) - 1})")
     return selected
 
 

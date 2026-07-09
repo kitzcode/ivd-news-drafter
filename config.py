@@ -63,6 +63,16 @@ SOURCES = {
         "url": "https://www.genomeweb.com/point-care-testing",
         "max_items": 25,
     },
+    # 360Dx: GenomeWeb's sister IVD/diagnostics publication (separate site).
+    # Same CAVEAT as GenomeWeb: subscription publication with no public RSS feed
+    # (checked -- /rss endpoints 404), so this scrapes only public headlines +
+    # links from the category page, never article bodies. Confirm ToS / robots.txt
+    # allow automated access before relying on it.
+    "360dx": {
+        "enabled": True,
+        "url": "https://www.360dx.com/point-care-testing",
+        "max_items": 25,
+    },
     # Optional extra RSS feeds. Add verified feed URLs here.
     "rss": {
         "enabled": False,
