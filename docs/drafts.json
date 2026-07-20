@@ -1,75 +1,45 @@
 {
-  "generated": "2026-07-13",
-  "count": 7,
+  "generated": "2026-07-20",
+  "count": 4,
   "drafts": [
     {
-      "title": "FDA Clears Visby Medical At-Home Covid-19, Flu PCR Test",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/regulatory-news-fda-approvals/fda-clears-visby-medical-home-covid-19-flu-pcr-test",
-      "why": "FDA clearance of at-home PCR test exemplifies IVD regulatory approval milestone",
+      "title": "Request for Information; Clinical Laboratory Improvement Amendments of 1988 (CLIA) Regulations",
+      "source": "Federal Register",
+      "url": "https://www.federalregister.gov/documents/2026/07/16/2026-14358/request-for-information-clinical-laboratory-improvement-amendments-of-1988-clia-regulations",
+      "why": "CLIA regulatory modernization RFI directly relevant to lab professionals and IVD industry",
       "confidence": "high",
-      "summary": "The FDA has cleared a Visby Medical at-home PCR test that detects both COVID-19 and flu. It is designed for consumer use at home, not a lab setting.",
-      "draft": "An at-home PCR test for both COVID and flu just got FDA clearance (Visby Medical). Not a rapid antigen test \u2014 actual PCR, at home.\n\nI'm curious how the workflow feels to a regular person running it without a lab tech nearby. That's always the part that's hard to design for and easy to underestimate in clearance docs.\n\nWill be watching to see how it lands in practice, not just on paper.",
-      "source_date": ""
-    },
-    {
-      "title": "BioM\u00e9rieux Submits Rapid Syndromic Vaginitis Panel to FDA for Dual 510(k)/CLIA Waiver",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/regulatory-news-fda-approvals/biomerieux-submits-rapid-syndromic-vaginitis-panel-fda-dual-510kclia",
-      "why": "CLIA waiver submission and dual 510(k) pathway directly relevant to regulatory strategy",
-      "confidence": "high",
-      "summary": "BioM\u00e9rieux has submitted a rapid syndromic vaginitis panel to the FDA, seeking both 510(k) clearance and CLIA waiver simultaneously. This dual submission pathway, if successful, would allow the test to be used in point-of-care settings outside of traditional labs.",
-      "draft": "BioM\u00e9rieux submitted a rapid syndromic vaginitis panel to the FDA for a dual 510(k) and CLIA waiver. The dual submission route is the part that catches my eye (pursuing both at once, rather than sequentially). In diagnostics that's not nothing \u2014 CLIA waiver is what gets a test into a clinic rather than a reference lab, which changes who actually sees results and how fast. Worth watching how it moves through review.",
-      "source_date": ""
-    },
-    {
-      "title": "Diasorin Gets FDA Clearance, CLIA Waiver for Group A Strep Rapid Molecular Test",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/regulatory-news-fda-approvals/diasorin-gets-fda-clearance-clia-waiver-group-strep-rapid-molecular",
-      "why": "FDA clearance plus CLIA waiver achievement for rapid molecular test",
-      "confidence": "high",
-      "summary": "DiaSorin received FDA clearance and a CLIA waiver for a rapid molecular test for Group A Strep. The CLIA waiver means it can be run in lower-complexity settings like doctor's offices, not just certified labs.",
-      "draft": "DiaSorin got FDA clearance plus a CLIA waiver for a rapid molecular Group A Strep test. The CLIA waiver part is the bit that catches my eye (it's what lets a test move out of the reference lab and into a doctor's office or urgent care). Molecular accuracy in a waived setting is the whole game for point-of-care diagnostics, so it's worth noticing when a clearance includes both. Strep is about as unglamorous a use case as you can pick, which is probably exactly why it makes sense to start there.",
-      "source_date": ""
+      "summary": "CMS and CDC have issued a Request for Information asking for public input on updating CLIA regulations, which haven't been substantially revised since 1992. Topics include breath testing, lab processes, emergency preparedness, biosafety, cybersecurity, and specialty testing. Responses may inform future rulemaking.",
+      "draft": "CLIA regulations have been in place since 1992. The underlying rules haven't kept up with how much lab technology has changed since then, and CMS and CDC are now asking for public input on potential updates, covering things like breath testing, cybersecurity, and emergency preparedness.\n\nAs someone who works in diagnostics and builds software that touches lab data, I'm curious what comes out of this. The gap between current lab tech and the regulatory framework it operates under is real.\n\nI'll probably submit a comment. (Haven't figured out exactly what I want to say yet, but that feels like a very on-brand place to be.)",
+      "source_date": "2026-07-16"
     },
     {
       "title": "Rollout of 5,000 Near Point-of-Care TB Test Systems in 13 Countries Begins With $50M in Funding",
-      "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/molecular-diagnostics/rollout-5000-near-point-care-tb-test-systems-13-countries-begins-50m-funding",
-      "why": "Large-scale POC test deployment demonstrates real-world POC diagnostics scaling",
+      "source": "360Dx",
+      "url": "https://www.360dx.com/molecular-diagnostics/rollout-5000-near-point-care-tb-test-systems-13-countries-begins-50m-funding",
+      "why": "Point-of-care TB test deployment demonstrates real-world POC diagnostic scale-up",
       "confidence": "high",
-      "summary": "A rollout of 5,000 near point-of-care TB test systems across 13 countries is beginning, backed by $50 million in funding. The effort aims to expand TB testing access closer to patients rather than centralized labs.",
-      "draft": "5,000 near point-of-care TB test systems, 13 countries, $50M. That's a large deployment by any measure.\n\nWhat catches my eye working in diagnostics is the 'near' in near point-of-care. It's doing a lot of work in that headline. Getting a test closer to the patient is genuinely hard (supply chain, training, connectivity, result routing), and 'near' usually means someone made a real tradeoff somewhere to make it actually work in the field.\n\nWould be curious what the data infrastructure looks like on the backend. That part rarely makes the announcement.",
+      "summary": "A rollout of 5,000 near point-of-care TB test systems across 13 countries is beginning, backed by $50 million in funding. The initiative aims to bring TB diagnostics closer to patients in high-burden settings.",
+      "draft": "5,000 near point-of-care TB test systems, 13 countries, $50M. That's a big logistics problem wrapped inside a diagnostics problem.\n\nWhat catches my eye working in IVD is the 'near' in near point-of-care. Not at the bedside, not in a central lab. Somewhere in between, which is often where the hard implementation work actually lives. Placement, training, result routing, connectivity (or lack of it).\n\nI don't know what the rollout plan looks like on the ground. I'm curious how they're handling that middle layer.",
       "source_date": ""
     },
     {
       "title": "Cepheid POC Molecular Vaginitis Assay Improves Diagnostic Accuracy in Study",
-      "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/point-care-testing/cepheid-poc-molecular-vaginitis-assay-improves-diagnostic-accuracy-study",
-      "why": "POC molecular assay validation study relevant to diagnostic performance discussion",
+      "source": "360Dx",
+      "url": "https://www.360dx.com/point-care-testing/cepheid-poc-molecular-vaginitis-assay-improves-diagnostic-accuracy-study",
+      "why": "Cepheid POC molecular assay clinical validation relevant to POC testing community",
       "confidence": "high",
-      "summary": "A study found that Cepheid's point-of-care molecular assay for vaginitis improved diagnostic accuracy compared to standard methods. The assay is designed to identify the cause of vaginitis at the point of care, potentially reducing misdiagnosis.",
-      "draft": "Vaginitis is one of those things that sounds simple until you're in the weeds with it. It's common, it's frequently misdiagnosed, and the clinical consequences of getting it wrong aren't nothing.\n\nSo a study showing improved diagnostic accuracy with a POC molecular assay catches my eye. Not because POC molecular is a new idea, but because vaginitis specifically has such a long history of being diagnosed by eye (literally, wet prep and a microscope).\n\nI'd want to see the study details before drawing any conclusions. But as someone who thinks about diagnostic workflows, this is the kind of shift worth watching.",
+      "summary": "A study found that Cepheid's point-of-care molecular assay for vaginitis improved diagnostic accuracy compared to standard methods. The test runs at the point of care, meaning results are available during the clinical visit rather than days later.",
+      "draft": "Vaginitis is one of those things that sounds simple but is genuinely hard to diagnose accurately without decent lab support. So a study showing a POC molecular assay improving diagnostic accuracy there is interesting to me, partly because molecular at the point of care still feels like a big deal in settings where you'd otherwise be waiting days for results (or just guessing).\n\nI don't know the full study design, so I'm holding my enthusiasm loosely. But the direction makes sense. Faster and more accurate for something this common seems worth paying attention to.",
       "source_date": ""
     },
     {
       "title": "WHO Unveils Official Ebola Outbreak Plan, Including Scale-up of Point-of-Care MDx System",
-      "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/infectious-disease/who-unveils-official-ebola-outbreak-plan-including-scale-point-care-mdx-system",
-      "why": "POC MDx system scale-up for outbreak response shows critical diagnostic infrastructure role",
-      "confidence": "high",
-      "summary": "The WHO has released an official plan for responding to Ebola outbreaks that includes scaling up a point-of-care molecular diagnostics system. The plan formalizes the role of POC MDx in outbreak response infrastructure.",
-      "draft": "WHO put out an official Ebola outbreak response plan, and it includes scaling up a point-of-care MDx system as part of the infrastructure.\n\nThat caught my eye. Getting POC diagnostics written into an official outbreak plan (not just used ad hoc in the field, but actually named in the playbook) feels like a different kind of recognition than a pilot or a press release.\n\nI don't know the specifics of which system or what scale-up looks like in practice. But I'm curious how the logistics actually work when you're moving POC testing into formal emergency response frameworks. That part is rarely the simple bit.",
-      "source_date": ""
-    },
-    {
-      "title": "New Pan-European Network to Develop Novel Diagnostics for Infectious Diseases",
       "source": "360Dx",
-      "url": "https://www.360dx.com/research-funding/new-pan-european-network-develop-novel-diagnostics-infectious-diseases",
-      "why": "European diagnostic development network relevant to international IVD innovation landscape",
-      "confidence": "low",
-      "summary": "A new pan-European network is being established to develop novel diagnostics for infectious diseases. The 360Dx article announces the initiative but the provided text contains no further details about funding, partners, timelines, or specific diseases targeted.",
-      "draft": "There's a new pan-European network forming around diagnostics for infectious diseases. I don't have much detail yet beyond the announcement, but the framing alone is interesting to me: pan-European coordination specifically on the diagnostics side, not just therapeutics or surveillance. That's not always where the attention goes first. I'll be watching to see what diseases they're prioritizing and what 'novel' means in practice here (that word does a lot of work in announcements like this).",
+      "url": "https://www.360dx.com/infectious-disease/who-unveils-official-ebola-outbreak-plan-including-scale-point-care-mdx-system",
+      "why": "WHO scale-up of point-of-care molecular diagnostics system in outbreak response",
+      "confidence": "high",
+      "summary": "The WHO has released an official plan for responding to Ebola outbreaks that includes scaling up a point-of-care molecular diagnostics system. The article is from 360Dx and covers the WHO's formalized approach to deploying rapid diagnostics in outbreak settings.",
+      "draft": "The WHO putting out an official Ebola outbreak plan that includes scaling point-of-care MDx caught my attention this week. Formalizing the diagnostics piece into outbreak response planning (not just the treatment and containment side) is the part I find interesting. In my work the testing infrastructure is often the last thing people think about and the first thing that becomes a bottleneck. Anyway, I don't have details beyond the headline yet, so I'm going to actually read the full piece before I have anything smarter to say about it.",
       "source_date": ""
     }
   ]
