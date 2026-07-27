@@ -1,45 +1,35 @@
 {
-  "generated": "2026-07-20",
-  "count": 4,
+  "generated": "2026-07-27",
+  "count": 3,
   "drafts": [
     {
-      "title": "Request for Information; Clinical Laboratory Improvement Amendments of 1988 (CLIA) Regulations",
+      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the Over-the-Counter Test To Detect SARS-CoV-2 From Clinical Specimens",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/07/16/2026-14358/request-for-information-clinical-laboratory-improvement-amendments-of-1988-clia-regulations",
-      "why": "CLIA regulatory modernization RFI directly relevant to lab professionals and IVD industry",
+      "url": "https://www.federalregister.gov/documents/2026/07/24/2026-14985/medical-devices-immunology-and-microbiology-devices-classification-of-the-over-the-counter-test-to",
+      "why": "FDA OTC SARS-CoV-2 test classification to Class II with special controls\u2014direct regulatory action on IVD device classification",
       "confidence": "high",
-      "summary": "CMS and CDC have issued a Request for Information asking for public input on updating CLIA regulations, which haven't been substantially revised since 1992. Topics include breath testing, lab processes, emergency preparedness, biosafety, cybersecurity, and specialty testing. Responses may inform future rulemaking.",
-      "draft": "CLIA regulations have been in place since 1992. The underlying rules haven't kept up with how much lab technology has changed since then, and CMS and CDC are now asking for public input on potential updates, covering things like breath testing, cybersecurity, and emergency preparedness.\n\nAs someone who works in diagnostics and builds software that touches lab data, I'm curious what comes out of this. The gap between current lab tech and the regulatory framework it operates under is real.\n\nI'll probably submit a comment. (Haven't figured out exactly what I want to say yet, but that feels like a very on-brand place to be.)",
-      "source_date": "2026-07-16"
+      "summary": "FDA is formally classifying over-the-counter SARS-CoV-2 tests as Class II devices with special controls. The agency says this classification provides reasonable assurance of safety and effectiveness while reducing regulatory burdens and improving patient access.",
+      "draft": "FDA just formally classified OTC SARS-CoV-2 tests as Class II devices with special controls. If you work in IVD this is the kind of regulatory housekeeping that matters a lot practically (Class II means special controls rather than the premarket approval burden of Class III). The stated rationale is reasonable assurance of safety and effectiveness plus reducing regulatory burden to improve access. It's a bit of a 'finally' moment for a device category that's been around long enough to have a whole pandemic's worth of real-world data behind it.",
+      "source_date": "2026-07-24"
     },
     {
-      "title": "Rollout of 5,000 Near Point-of-Care TB Test Systems in 13 Countries Begins With $50M in Funding",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/molecular-diagnostics/rollout-5000-near-point-care-tb-test-systems-13-countries-begins-50m-funding",
-      "why": "Point-of-care TB test deployment demonstrates real-world POC diagnostic scale-up",
+      "title": "Cepheid Targeting Faster, Higher-Plex Infectious Disease Panels With GeneXpert Update",
+      "source": "GenomeWeb (POC)",
+      "url": "https://www.genomeweb.com/business-news/cepheid-targeting-faster-higher-plex-infectious-disease-panels-genexpert-update",
+      "why": "Cepheid GeneXpert platform update for infectious disease panels\u2014relevant POC molecular testing development",
       "confidence": "high",
-      "summary": "A rollout of 5,000 near point-of-care TB test systems across 13 countries is beginning, backed by $50 million in funding. The initiative aims to bring TB diagnostics closer to patients in high-burden settings.",
-      "draft": "5,000 near point-of-care TB test systems, 13 countries, $50M. That's a big logistics problem wrapped inside a diagnostics problem.\n\nWhat catches my eye working in IVD is the 'near' in near point-of-care. Not at the bedside, not in a central lab. Somewhere in between, which is often where the hard implementation work actually lives. Placement, training, result routing, connectivity (or lack of it).\n\nI don't know what the rollout plan looks like on the ground. I'm curious how they're handling that middle layer.",
+      "summary": "Cepheid is working on an updated GeneXpert platform aimed at faster turnaround times and higher-plex infectious disease panels. The news relates to point-of-care molecular diagnostics, a space where GeneXpert is already widely used.",
+      "draft": "Cepheid is working on a GeneXpert update targeting faster results and higher-plex infectious disease panels. I don't have details beyond the headline yet, but higher-plex at point of care is the kind of thing I end up thinking about from a data and workflow angle as much as a clinical one. More targets per run sounds straightforwardly good until you're the one figuring out what to do with the results. Curious to see what the actual panel designs look like when more comes out.",
       "source_date": ""
     },
     {
-      "title": "Cepheid POC Molecular Vaginitis Assay Improves Diagnostic Accuracy in Study",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/point-care-testing/cepheid-poc-molecular-vaginitis-assay-improves-diagnostic-accuracy-study",
-      "why": "Cepheid POC molecular assay clinical validation relevant to POC testing community",
+      "title": "Bundibugyo Ebola Diagnostic Testing Ramps up as Outbreak Grows",
+      "source": "GenomeWeb (POC)",
+      "url": "https://www.genomeweb.com/infectious-disease/bundibugyo-ebola-diagnostic-testing-ramps-outbreak-grows",
+      "why": "Diagnostic testing deployment for Ebola outbreak\u2014real-world IVD application in infectious disease response",
       "confidence": "high",
-      "summary": "A study found that Cepheid's point-of-care molecular assay for vaginitis improved diagnostic accuracy compared to standard methods. The test runs at the point of care, meaning results are available during the clinical visit rather than days later.",
-      "draft": "Vaginitis is one of those things that sounds simple but is genuinely hard to diagnose accurately without decent lab support. So a study showing a POC molecular assay improving diagnostic accuracy there is interesting to me, partly because molecular at the point of care still feels like a big deal in settings where you'd otherwise be waiting days for results (or just guessing).\n\nI don't know the full study design, so I'm holding my enthusiasm loosely. But the direction makes sense. Faster and more accurate for something this common seems worth paying attention to.",
-      "source_date": ""
-    },
-    {
-      "title": "WHO Unveils Official Ebola Outbreak Plan, Including Scale-up of Point-of-Care MDx System",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/infectious-disease/who-unveils-official-ebola-outbreak-plan-including-scale-point-care-mdx-system",
-      "why": "WHO scale-up of point-of-care molecular diagnostics system in outbreak response",
-      "confidence": "high",
-      "summary": "The WHO has released an official plan for responding to Ebola outbreaks that includes scaling up a point-of-care molecular diagnostics system. The article is from 360Dx and covers the WHO's formalized approach to deploying rapid diagnostics in outbreak settings.",
-      "draft": "The WHO putting out an official Ebola outbreak plan that includes scaling point-of-care MDx caught my attention this week. Formalizing the diagnostics piece into outbreak response planning (not just the treatment and containment side) is the part I find interesting. In my work the testing infrastructure is often the last thing people think about and the first thing that becomes a bottleneck. Anyway, I don't have details beyond the headline yet, so I'm going to actually read the full piece before I have anything smarter to say about it.",
+      "summary": "An outbreak of Bundibugyo Ebola is growing, and diagnostic testing is ramping up in response. The GenomeWeb piece covers the expansion of point-of-care testing capacity as the situation develops.",
+      "draft": "Watching the Bundibugyo Ebola outbreak coverage from a diagnostics angle. The piece that caught my eye was specifically about testing capacity ramping up alongside case counts.\n\nThat part is always interesting to me (and a little stressful to read about, honestly). Getting the right test to the right place fast enough is its own logistics problem on top of the clinical one. POC in an outbreak setting is not a solved problem.\n\nI don't have visibility into what's actually happening on the ground there. Just someone in diagnostics, reading the news carefully.",
       "source_date": ""
     }
   ]
