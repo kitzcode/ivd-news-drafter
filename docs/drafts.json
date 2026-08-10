@@ -1,35 +1,35 @@
 {
-  "generated": "2026-08-03",
+  "generated": "2026-08-10",
   "count": 3,
   "drafts": [
     {
-      "title": "Kompass Diagnostics Point-of-Care System Wins ADLM Disruptive Technology Competition",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/point-care-testing/kompass-diagnostics-point-care-system-wins-adlm-disruptive-technology",
-      "why": "POC diagnostic system wins industry recognition; directly relevant to point-of-care testing innovation",
+      "title": "Authorization of Emergency Use of an In Vitro Diagnostic Device in Response to an Outbreak of Mpox; Availability",
+      "source": "Federal Register",
+      "url": "https://www.federalregister.gov/documents/2026/08/06/2026-15964/authorization-of-emergency-use-of-an-in-vitro-diagnostic-device-in-response-to-an-outbreak-of-mpox",
+      "why": "FDA EUA issuance for mpox IVD\u2014direct regulatory action on diagnostic device authorization",
       "confidence": "high",
-      "summary": "Kompass Diagnostics won the ADLM Disruptive Technology Competition for their point-of-care system. The item is a brief news notice from 360Dx with no additional details provided in the source text.",
-      "draft": "Kompass Diagnostics just won the ADLM Disruptive Technology Competition for their point-of-care system. I don't have much detail beyond the headline yet, but point-of-care is an area I watch pretty closely (it keeps showing up in workflows I'm trying to support with data), so I'll be digging into what they actually built. ADLM putting a competition spotlight on POC specifically is interesting to me. Will report back if I find anything worth sharing.",
-      "source_date": ""
+      "summary": "FDA issued an Emergency Use Authorization for the Allplex HSV-1&2/VZV/MPXV Assay, which can simultaneously detect and differentiate MPXV (clade I and II), HSV-1, HSV-2, and VZV from a single test. This builds on the HHS public health emergency determination made in August 2022 related to monkeypox. The assay is now authorized for emergency diagnostic use under the FD&C Act.",
+      "draft": "FDA just issued an EUA for the Allplex HSV-1&2/VZV/MPXV Assay, which does simultaneous detection and differentiation of MPXV (clade I and II), HSV-1, HSV-2, and VZV in one run.\n\nThe part that caught my eye as someone who works in diagnostics: that combination. Lesion presentations for these can look a lot alike clinically, so being able to rule in or out multiple targets at once matters for how quickly a clinician can act.\n\nStill reading through the authorization conditions (those details are usually where the interesting constraints live).",
+      "source_date": "2026-08-06"
     },
     {
-      "title": "Cepheid Targeting Faster, Higher-Plex Infectious Disease Panels With GeneXpert Update",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/business-news/cepheid-targeting-faster-higher-plex-infectious-disease-panels-genexpert-update",
-      "why": "Molecular diagnostic panel update for infectious disease; relevant to IVD assay development and clinical applications",
-      "confidence": "high",
-      "summary": "Cepheid is working on an update to its GeneXpert platform aimed at faster turnaround times and higher-plex infectious disease panels. No specific new products or launch dates are mentioned in the provided text.",
-      "draft": "Cepheid is working on updates to GeneXpert to run faster and test for more targets at once. That combination (speed plus plex) is the thing I always watch for in point-of-care infectious disease, because those two usually trade off against each other in ways that matter a lot at the instrument level. Nothing shipped yet, just something I'm keeping an eye on from the diagnostics corner of my feed.",
-      "source_date": ""
-    },
-    {
-      "title": "Genomtec Raises \u20ac2.6M to Support Molecular Test Commercialization, AI-Based Assay Development",
+      "title": "Co-Diagnostics Submits Point-of-Care Respiratory Infection Test to FDA",
       "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/business-news/genomtec-raises-eu26m-support-molecular-test-commercialization-ai-based-assay",
-      "why": "Molecular test commercialization funding; relevant to IVD development and market entry",
+      "url": "https://www.genomeweb.com/regulatory-news-fda-approvals/co-diagnostics-submits-point-care-respiratory-infection-test-fda",
+      "why": "POC respiratory test FDA submission\u2014relevant to diagnostic device regulatory pathway",
       "confidence": "high",
-      "summary": "Genomtec has raised \u20ac2.6M to support commercialization of its molecular tests and development of AI-based assay tools. The company works in point-of-care molecular diagnostics. No further details about the technology or investors were provided in the source text.",
-      "draft": "Genomtec raised \u20ac2.6M for molecular test commercialization and AI-based assay development. I don't know much about them beyond that headline, but the combination catches my eye (AI for assay development is something I keep watching from the software side of diagnostics). POC molecular plus AI-assisted development is a crowded pitch right now. Curious whether the AI piece is upstream in design or downstream in interpretation. Probably both, honestly. Either way, \u20ac2.6M is a real but modest number for commercializing hardware-adjacent molecular tests.",
+      "summary": "Co-Diagnostics has submitted a point-of-care respiratory infection test to the FDA for review. No additional details about the test's targets, technology, or timeline were provided in the source.",
+      "draft": "Co-Diagnostics submitted a point-of-care respiratory infection test to the FDA. That's basically all the detail available right now, which is a little frustrating when you work in this space and want to know which targets, what platform, what claim they're going for. POC respiratory is a crowded space, so I'm curious what their angle is. Guess we wait for the clearance notice (or the next press release that actually has specifics).",
+      "source_date": ""
+    },
+    {
+      "title": "At ADLM, Multimodal Point-of-Care System Makers Cubit Dx, Fluxergy Describe Accelerating Advances",
+      "source": "GenomeWeb (POC)",
+      "url": "https://www.genomeweb.com/business-news/adlm-multimodal-point-care-system-makers-cubit-dx-fluxergy-describe-accelerating",
+      "why": "Multimodal POC system advances\u2014relevant innovation in point-of-care diagnostics",
+      "confidence": "high",
+      "summary": "At the ADLM conference, two multimodal point-of-care system makers, Cubit Dx and Fluxergy, described accelerating advances in their respective platforms. The article covers their presentations on progress in POC diagnostics.",
+      "draft": "Caught a piece from ADLM about Cubit Dx and Fluxergy talking through where their multimodal POC platforms are heading. I don't have enough detail on the specifics yet to say much, but 'multimodal point-of-care' is a phrase I keep running into lately and I'm genuinely curious what that means in practice at the clinic or lab bench level (not just on a spec sheet). Something I'll be reading more closely.",
       "source_date": ""
     }
   ]
