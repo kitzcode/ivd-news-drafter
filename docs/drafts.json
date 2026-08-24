@@ -1,35 +1,35 @@
 {
-  "generated": "2026-08-17",
+  "generated": "2026-08-24",
   "count": 3,
   "drafts": [
     {
-      "title": "FDA Clears IVD Tests, Systems From Hamamatsu, Roche, Cepheid, Siemens Healthineers, Others in July",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/regulatory-news-fda-approvals/fda-clears-ivd-tests-systems-hamamatsu-roche-cepheid-siemens",
-      "why": "FDA clearances for IVD tests and systems from major manufacturers\u2014directly relevant regulatory action",
+      "title": "Potency Assessment of Active Immunotherapy Products; Draft Guidance for Industry; Availability",
+      "source": "Federal Register",
+      "url": "https://www.federalregister.gov/documents/2026/08/20/2026-16960/potency-assessment-of-active-immunotherapy-products-draft-guidance-for-industry-availability",
+      "why": "FDA guidance on potency assay development for immunotherapy products\u2014directly relevant to IVD regulatory requirements.",
       "confidence": "high",
-      "summary": "The FDA cleared multiple IVD tests and systems in July from companies including Hamamatsu, Roche, Cepheid, and Siemens Healthineers. The article from 360Dx covers the regulatory approvals but the full detail of which specific tests were cleared is not provided in the source text supplied.",
-      "draft": "I keep a loose eye on the monthly FDA IVD clearance roundups (occupational hazard of working in this space). The July list from 360Dx includes Hamamatsu, Roche, Cepheid, Siemens Healthineers, and others. I mostly scan these for anything adjacent to what I'm working on, occasionally find something surprising, and usually end up with three more browser tabs I don't close for a week.",
+      "summary": "FDA published a draft guidance on potency assessment for active immunotherapy products (ACTIMPs), covering assay design, validation, and evaluation. It supplements a December 2023 draft guidance on cellular and gene therapy potency assurance, and specifically addresses peptide- and protein-based ACTIMPs that fall outside the CGT category.",
+      "draft": "FDA dropped a draft guidance on potency assessment for active immunotherapy products (ACTIMPs) this week. It's meant to supplement the December 2023 CGT potency assurance draft, but specifically covers peptide- and protein-based products that don't fall into the cellular or gene therapy bucket.\n\nThat carve-out is the part I keep thinking about. Potency is already one of the harder characterization problems in biologics, and getting clearer recommendations for this particular product class seems useful (if also, knowing guidance timelines, not exactly fast).\n\nStill draft, so comments open before anything is finalized.",
+      "source_date": "2026-08-20"
+    },
+    {
+      "title": "It Takes More Than Insurance Coverage to Standardize NGS Testing in Practice, Study Shows",
+      "source": "GenomeWeb (POC)",
+      "url": "https://www.genomeweb.com/cancer/it-takes-more-insurance-coverage-standardize-ngs-testing-practice-study-shows",
+      "why": "NGS testing standardization study addresses clinical lab practices and test validation\u2014relevant to CLIA/diagnostic regulation.",
+      "confidence": "high",
+      "summary": "A study reported by GenomeWeb found that insurance coverage alone is not enough to standardize NGS testing in clinical practice. Other factors beyond coverage appear to drive variation in how and when NGS testing gets used.",
+      "draft": "The headline from this GenomeWeb piece didn't surprise me, but it's still worth sitting with: insurance coverage alone doesn't standardize NGS testing in practice.\n\nWorking in diagnostics and clinical data, I've seen how coverage is treated like the finish line. Get the payer to say yes, and the access problem is solved. But there's a lot of space between 'covered' and 'consistently ordered, correctly interpreted, and actually used to change care.'\n\nNo idea yet what factors the study highlights specifically. Adding it to the reading pile. (The pile is, as always, ambitious.)",
       "source_date": ""
     },
     {
-      "title": "Co-Diagnostics Submits Point-of-Care Respiratory Infection Test to FDA",
+      "title": "Abbott, HealthTab Ink UK Distribution Agreement for Point-of-Care Testing Products",
       "source": "360Dx",
-      "url": "https://www.360dx.com/regulatory-news-fda-approvals/co-diagnostics-submits-point-care-respiratory-infection-test-fda",
-      "why": "POC respiratory test FDA submission\u2014relevant regulatory milestone for point-of-care diagnostics",
+      "url": "https://www.360dx.com/point-care-testing/abbott-healthtab-ink-uk-distribution-agreement-point-care-testing-products",
+      "why": "Point-of-care testing distribution agreement; directly relevant to POC diagnostics sector.",
       "confidence": "high",
-      "summary": "Co-Diagnostics has submitted a point-of-care respiratory infection test to the FDA. No further details about the test targets, timeline, or submission type are provided in the source text.",
-      "draft": "Co-Diagnostics submitted a point-of-care respiratory infection test to the FDA. That's essentially all the detail in the announcement right now.\n\nI find myself noticing these submissions more than I used to (occupational hazard of working in IVD, I guess). The gap between submission and clearance is usually where the interesting stuff happens anyway. Not much to say yet, just flagging it for people who watch this space like I do.",
-      "source_date": ""
-    },
-    {
-      "title": "At ADLM, Multimodal Point-of-Care System Makers Cubit Dx, Fluxergy Describe Accelerating Advances",
-      "source": "360Dx",
-      "url": "https://www.360dx.com/business-news/adlm-multimodal-point-care-system-makers-cubit-dx-fluxergy-describe-accelerating",
-      "why": "Multimodal POC system advances presented at ADLM\u2014industry conference coverage on POC technology trends",
-      "confidence": "high",
-      "summary": "At the ADLM conference, two companies making multimodal point-of-care diagnostic systems, Cubit Dx and Fluxergy, described accelerating advances in their platforms. Both are working on systems that can run multiple types of tests from a single device at the point of care.",
-      "draft": "Caught a piece from ADLM on Cubit Dx and Fluxergy, both building multimodal point-of-care systems. The 'multimodal' part is what gets my attention \u2014 running different test types off one device at the point of care is genuinely hard, and it's been 'coming soon' for a while in this space. Worth watching whether the accelerating part holds up outside a conference booth.",
+      "summary": "Abbott and HealthTab have signed a UK distribution agreement for point-of-care testing products. The deal expands access to Abbott's point-of-care diagnostics through HealthTab's distribution network in the UK.",
+      "draft": "Abbott and HealthTab signed a UK distribution agreement for point-of-care testing products. I don't have the full details yet (paywalled for me), but point-of-care distribution deals in the UK are worth watching if you work in diagnostics over there. Getting the product to the right setting is genuinely most of the problem in POC. The test itself is almost the easy part.",
       "source_date": ""
     }
   ]
