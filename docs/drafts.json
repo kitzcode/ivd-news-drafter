@@ -1,35 +1,25 @@
 {
-  "generated": "2026-08-24",
-  "count": 3,
+  "generated": "2026-08-31",
+  "count": 2,
   "drafts": [
     {
-      "title": "Potency Assessment of Active Immunotherapy Products; Draft Guidance for Industry; Availability",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/08/20/2026-16960/potency-assessment-of-active-immunotherapy-products-draft-guidance-for-industry-availability",
-      "why": "FDA guidance on potency assay development for immunotherapy products\u2014directly relevant to IVD regulatory requirements.",
-      "confidence": "high",
-      "summary": "FDA published a draft guidance on potency assessment for active immunotherapy products (ACTIMPs), covering assay design, validation, and evaluation. It supplements a December 2023 draft guidance on cellular and gene therapy potency assurance, and specifically addresses peptide- and protein-based ACTIMPs that fall outside the CGT category.",
-      "draft": "FDA dropped a draft guidance on potency assessment for active immunotherapy products (ACTIMPs) this week. It's meant to supplement the December 2023 CGT potency assurance draft, but specifically covers peptide- and protein-based products that don't fall into the cellular or gene therapy bucket.\n\nThat carve-out is the part I keep thinking about. Potency is already one of the harder characterization problems in biologics, and getting clearer recommendations for this particular product class seems useful (if also, knowing guidance timelines, not exactly fast).\n\nStill draft, so comments open before anything is finalized.",
-      "source_date": "2026-08-20"
-    },
-    {
-      "title": "It Takes More Than Insurance Coverage to Standardize NGS Testing in Practice, Study Shows",
+      "title": "QuidelOrtho Slashes Full-Year Guidance on Continued China IVD Pricing Uncertainty",
       "source": "GenomeWeb (POC)",
-      "url": "https://www.genomeweb.com/cancer/it-takes-more-insurance-coverage-standardize-ngs-testing-practice-study-shows",
-      "why": "NGS testing standardization study addresses clinical lab practices and test validation\u2014relevant to CLIA/diagnostic regulation.",
+      "url": "https://www.genomeweb.com/business-news/quidelortho-slashes-full-year-guidance-continued-china-ivd-pricing-uncertainty",
+      "why": "IVD market dynamics and regulatory/pricing pressures in key geographic markets",
       "confidence": "high",
-      "summary": "A study reported by GenomeWeb found that insurance coverage alone is not enough to standardize NGS testing in clinical practice. Other factors beyond coverage appear to drive variation in how and when NGS testing gets used.",
-      "draft": "The headline from this GenomeWeb piece didn't surprise me, but it's still worth sitting with: insurance coverage alone doesn't standardize NGS testing in practice.\n\nWorking in diagnostics and clinical data, I've seen how coverage is treated like the finish line. Get the payer to say yes, and the access problem is solved. But there's a lot of space between 'covered' and 'consistently ordered, correctly interpreted, and actually used to change care.'\n\nNo idea yet what factors the study highlights specifically. Adding it to the reading pile. (The pile is, as always, ambitious.)",
+      "summary": "QuidelOrtho has significantly cut its full-year financial guidance, citing ongoing uncertainty around IVD pricing in China. The situation reflects broader pressures on diagnostics companies operating in or exposed to the Chinese market.",
+      "draft": "QuidelOrtho cut its full-year guidance because of IVD pricing uncertainty in China. That's a pretty significant thing to have hanging over a diagnostics company's year.\n\nI don't have special insight into what's driving the pricing pressure there, but I do work in IVD, so news like this lands differently than it might for someone outside the space. Guidance cuts of this kind tend to ripple. Worth keeping an eye on, even if you're not directly in their orbit. (Or maybe especially then.)",
       "source_date": ""
     },
     {
-      "title": "Abbott, HealthTab Ink UK Distribution Agreement for Point-of-Care Testing Products",
+      "title": "It Takes More Than Insurance Coverage to Standardize NGS Testing in Practice, Study Shows",
       "source": "360Dx",
-      "url": "https://www.360dx.com/point-care-testing/abbott-healthtab-ink-uk-distribution-agreement-point-care-testing-products",
-      "why": "Point-of-care testing distribution agreement; directly relevant to POC diagnostics sector.",
+      "url": "https://www.360dx.com/cancer/it-takes-more-insurance-coverage-standardize-ngs-testing-practice-study-shows",
+      "why": "NGS testing standardization and clinical implementation challenges relevant to lab regulation",
       "confidence": "high",
-      "summary": "Abbott and HealthTab have signed a UK distribution agreement for point-of-care testing products. The deal expands access to Abbott's point-of-care diagnostics through HealthTab's distribution network in the UK.",
-      "draft": "Abbott and HealthTab signed a UK distribution agreement for point-of-care testing products. I don't have the full details yet (paywalled for me), but point-of-care distribution deals in the UK are worth watching if you work in diagnostics over there. Getting the product to the right setting is genuinely most of the problem in POC. The test itself is almost the easy part.",
+      "summary": "A study reported by 360Dx found that insurance coverage alone is not enough to standardize NGS testing in clinical practice. Other barriers beyond reimbursement exist that affect whether and how NGS testing gets used consistently.",
+      "draft": "There's a study out (via 360Dx) about NGS testing standardization, and the headline is basically: insurance coverage is necessary but not sufficient.\n\nThat tracks with what I see on the data side. Coverage decisions show up cleanly in claims. What doesn't show up as cleanly is everything else: whether the test was ordered, interpreted consistently, acted on. Reimbursement is legible. The rest is messier.\n\nNot a surprising finding, honestly. But useful to see it documented rather than just assumed.",
       "source_date": ""
     }
   ]
