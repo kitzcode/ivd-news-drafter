@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RegWatch V2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+  :root{
+    --ink:#14161B;--surface:#1B1E25;--raised:#22262F;--line:#2E333D;
+    --text:#E7E9EE;--muted:#9AA1AD;--amber:#F5B800;--amber-dim:rgba(245,184,0,.14);
+    --clay:#D07A52;--clay-dim:rgba(208,122,82,.14);--green:#7BC47F;
+    --blue:#6FA8DC;--blue-dim:rgba(111,168,220,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',system-ui,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;padding:0 0 70px}
+  .top{border-bottom:1px solid var(--line);background:rgba(20,22,27,.92);
+    position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+  .top-in{max-width:820px;margin:0 auto;padding:20px}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--amber)}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.01em}
+  h1 span{color:var(--amber)}
+  .meta{color:var(--muted);font-size:13px;margin-top:4px;font-family:'IBM Plex Mono',monospace}
+  main{max-width:820px;margin:0 auto;padding:18px 20px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    margin-top:14px;padding:16px 18px}
+  .card.thin{border-color:rgba(208,122,82,.4)}
+  .title{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:16px;margin-bottom:8px}
+  .badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+  .b{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;
+    padding:2px 8px;border-radius:5px;border:1px solid var(--line);color:var(--muted)}
+  .b.src{color:var(--amber);border-color:rgba(245,184,0,.4);background:var(--amber-dim)}
+  .b.eu{color:var(--blue);border-color:rgba(111,168,220,.45);background:var(--blue-dim)}
+  .b.thin{color:var(--clay);border-color:rgba(208,122,82,.45);background:var(--clay-dim)}
+  .b.role{color:var(--green);border-color:rgba(123,196,127,.4)}
+  .changed{color:#cfd3da;font-size:13.5px;margin-bottom:10px;border-left:2px solid var(--amber);padding-left:10px}
+  .thinnote{color:var(--clay);font-size:12.5px;margin-bottom:10px;font-style:italic}
+  .reads{border:1px solid var(--line);border-radius:9px;background:var(--ink);padding:6px 0;margin:8px 0}
+  .read{padding:9px 13px;border-bottom:1px solid var(--line)}
+  .read:last-child{border-bottom:none}
+  .read .rh{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--green);margin-bottom:4px;
+    display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .phase{color:var(--muted);font-size:10.5px;border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+  .read .kv{font-size:13px;color:#dbe0e7;margin-top:2px}
+  .read .kv b{color:var(--muted);font-weight:500;font-family:'IBM Plex Mono',monospace;font-size:11px}
+  .stublabel{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);
+    margin:12px 0 5px;letter-spacing:.05em}
+  .draft{background:var(--ink);border:1px dashed var(--line);border-radius:9px;
+    padding:13px 14px;white-space:pre-wrap;font-size:14.5px;color:#dfe2e8}
+  .row{display:flex;gap:10px;align-items:center;margin-top:11px;flex-wrap:wrap}
+  button.copy{background:var(--amber);border:none;color:#1a1500;font-weight:600;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:8px 14px;border-radius:8px;cursor:pointer}
+  button.copy:active{transform:translateY(1px)}
+  button.copy.done{background:var(--green);color:#062b08}
+  a.src-link{color:var(--muted);font-size:12.5px;font-family:'IBM Plex Mono',monospace;text-decoration:none}
+  a.src-link:hover{color:var(--amber);text-decoration:underline}
+  .flags{color:var(--clay);font-size:11.5px;font-family:'IBM Plex Mono',monospace;margin-top:9px}
+  .empty{text-align:center;color:var(--muted);font-family:'IBM Plex Mono',monospace;
+    font-size:13px;padding:60px 20px}
+  .note{max-width:820px;margin:24px auto 0;padding:0 20px;color:var(--muted);
+    font-size:12px;font-family:'IBM Plex Mono',monospace;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <div class="eyebrow"><span class="dot"></span> RegWatch V2 : practitioner reads</div>
+  <h1>This week&#8217;s <span>reads</span></h1>
+  <div class="meta" id="meta">loading&#8230;</div>
+</div></div>
+<main id="list"></main>
+<div class="note">
+  The tool proposes, you adjudicate. Every read is a suggestion grounded in the source text, not a directive.
+  Applicability to your own studies is always your call. Citations, links and dates are injected by code from the
+  source record; the model never writes them. Thin-source items flag that the source only told us something changed,
+  not what concretely changed. LinkedIn stubs are bare on purpose. Research and informational, not legal advice.
+</div>
+
+<script>
+function esc(s){return (s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+// Only http/https URLs may become a link target; anything else (javascript:,
+// data:, a scheme-less string) is dropped so it can never be an href.
+function safeUrl(u){return (typeof u==='string' && /^https?:\/\//i.test(u)) ? u : "";}
+
+async function load(){
+  const meta=document.getElementById('meta'), list=document.getElementById('list');
+  let data;
+  // If the data was inlined (self-contained review copy), use it; otherwise fetch
+  // the sibling drafts_v2.json (the normal served-site case).
+  if(window.__V2_DATA__){
+    data=window.__V2_DATA__;
+  }else{
+    try{
+      const res=await fetch('./drafts_v2.json',{cache:'no-store'});
+      data=await res.json();
+    }catch(e){
+      meta.textContent='Could not load drafts_v2.json';
+      list.innerHTML='<div class="empty">No drafts_v2 file found yet. Run: python main.py --v2</div>';
+      return;
+    }
+  }
+  meta.textContent=`generated ${data.generated} · ${data.count} item(s) · ${data.version||'v2'}`;
+  if(!data.drafts || !data.drafts.length){
+    list.innerHTML='<div class="empty">No relevant items this run.</div>';return;
+  }
+  data.drafts.forEach((d,i)=>{
+    const thin = !!d.thin_source;
+    const card=document.createElement('article');
+    card.className='card'+(thin?' thin':'');
+    const regionCls = (d.region==='EU')?'eu':'src';
+    const tagBadges = (d.source_tags||[]).map(t=>`<span class="b">${esc(t)}</span>`).join('');
+    const roleBadges = (d.roles||[]).map(r=>`<span class="b role">${esc(r)}</span>`).join('');
+    const reads = (d.reads||[]).map(rd=>{
+      const phases = (rd.lifecycle||[]).map(p=>`<span class="phase">${esc(p)}</span>`).join('');
+      return `<div class="read">
+        <div class="rh">${esc(rd.role)} &#183; ${esc(rd.role_label||'')} ${phases}</div>
+        <div class="kv"><b>artifact</b> ${esc(rd.artifact)}</div>
+        <div class="kv"><b>action</b> ${esc(rd.action)}</div>
+      </div>`;
+    }).join('');
+    card.innerHTML=`
+      <div class="title">${esc(d.title)}</div>
+      <div class="badges">
+        <span class="b ${regionCls}">${esc(d.region||'US')}</span>
+        <span class="b src">${esc(d.source)}</span>
+        ${tagBadges}
+        ${roleBadges}
+        ${thin?'<span class="b thin">thin source</span>':''}
+        ${d.source_date?`<span class="b">${esc(d.source_date)}</span>`:''}
+      </div>
+      ${d.what_changed?`<div class="changed">${esc(d.what_changed)}</div>`:''}
+      ${(thin&&d.thin_source_reason)?`<div class="thinnote">Thin source: ${esc(d.thin_source_reason)}. Naming a concrete artifact would be guessing.</div>`:''}
+      ${reads?`<div class="reads">${reads}</div>`:''}
+      <div class="stublabel">LINKEDIN STUB (bare by design)</div>
+      <div class="draft" id="draft-${i}">${esc(d.linkedin_stub)}</div>
+      <div class="row">
+        <button class="copy" data-i="${i}">Copy stub</button>
+        ${safeUrl(d.url)?`<a class="src-link" href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener">open source ↗</a>`:''}
+      </div>
+      ${(d.sanitize_flags&&d.sanitize_flags.length)?`<div class="flags">sanitizer stripped model-emitted: ${esc(d.sanitize_flags.join(', '))}</div>`:''}`;
+    list.appendChild(card);
+  });
+  list.addEventListener('click',ev=>{
+    const btn=ev.target.closest('button.copy'); if(!btn) return;
+    const text=document.getElementById('draft-'+btn.dataset.i).textContent;
+    navigator.clipboard.writeText(text).then(()=>{
+      btn.textContent='Copied ✓'; btn.classList.add('done');
+      setTimeout(()=>{btn.textContent='Copy stub';btn.classList.remove('done');},1600);
+    });
+  });
+}
+load();
+</script>
+</body>
+</html>

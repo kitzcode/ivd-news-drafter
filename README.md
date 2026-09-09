@@ -71,6 +71,66 @@ Rules describe your voice; a real example or two gets it much closer.
 The API key only ever lives in Actions secrets and is used during the run. The
 published site only contains finished drafts, never the key.
 
+## RegWatch V2 (opt-in: `python main.py --v2`)
+
+V2 reuses the same pipeline (fetch, keyword prefilter, seen-cache dedupe, Haiku
+relevance pass, code-injected citations) and adds layers on top. It writes to a
+SEPARATE output, `docs/drafts_v2.json` + `drafts/v2/<date>.md` + its own
+`seen_v2.json`, so the default run and its `docs/drafts.json` are never touched.
+Review page: `docs/index_v2.html`.
+
+```
+python main.py --v2 --dry-run    # V2 fetch + tag + filter only, no Claude, no writes
+python main.py --v2              # full V2 run (uses Claude, writes drafts_v2.json)
+```
+
+New sources (adapters behind the same interface, verified in recon):
+
+- **Targeted Federal Register (IVD/CLIA)**: the default agency feed is capped at
+  the 40 newest FDA+CMS docs with no topic filter, so substantive IVD regulatory
+  CHANGES (device reclassification rules, the CLIA RFI, the Medicare physician fee
+  schedule, IVD EUAs and revocations) older than the newest 40 are invisible to it.
+  `fetch_federal_register_ivd` queries the same API by precise IVD/CLIA phrases so
+  those are caught with their real abstracts (which lets the practitioner read be
+  concrete instead of thin). The V2 relevance pass also prefers regulatory changes
+  over routine 510(k) clearances (`score_and_select(prefer_regulatory_changes=True)`).
+- **CMS** coverage/reimbursement: NOT a new endpoint. Most CMS rulemaking already
+  arrives through the Federal Register feed (the CMS agency is already queried), so
+  CMS is a keyword LENS (`config.CMS_LENS`) that tags those items. `data.cms.gov`
+  exposes only statistical datasets, and the Medicare Coverage Database (NCD/LCD)
+  is not a clean public feed, so the Federal Register is the verified path.
+- **CLIA** (42 CFR 493, administered by CMS): a keyword LENS (`config.CLIA_LENS`)
+  over the Federal Register + CMS items, tagged CLIA. Not a standalone source.
+- **CAP**: honest limitation. The public newsroom is fetchable but JS-rendered, so
+  the static HTML yields only section/nav links, not dated announcements. It cannot
+  be usefully automated, so it is DISABLED by default and left as a manual-watch
+  note; the adapter stays in place (force-thin) if a genuinely itemized public page
+  is pointed at it. Membership-gated checklist content is never fetched.
+- **EU IVDR (MDCG)**: the Medical Device Coordination Group endorsed-documents page
+  on `health.ec.europa.eu`, verified fetchable with extractable document links. This
+  is the best available public EU IVDR signal. EUR-Lex blocks automated access (HTTP
+  202 anti-bot wall) and EMA retired its public RSS with a JS-rendered news list, so
+  full EU legal text and EMA news are NOT automated (manual watch). EU items are
+  tagged region EU. An optional EC press-corner RSS lens (`eu_presscorner`, off by
+  default) is available for a wider EU policy net.
+
+The practitioner read (PART 2): for each change, per CONFIGURED role (CDM, ClinOps,
+RA, QA, Lab, Biostat; picked by id, invented ids dropped), the model names the
+specific artifact, the specific suggested action, and the lifecycle phase(s) it
+lands in (planning / execution / submission). It PROPOSES; you adjudicate.
+
+Anti-hallucination is tightened for V2 (`sanitize.py`): the model phrases
+implications only. Any URL, date, document id, or CFR clause it emits is stripped
+and flagged (`sanitize_flags`), because every citation is code-injected from the
+source record. If a source is too thin to name what concretely changes, the read is
+collapsed to a "watch, do not act yet" note (`thin_source`). Applicability to your
+own studies is always your call and is appended in code to every action. CRA/monitor
+framing is locked (`config.CRA_CONSTRAINT`): CRA is not a selectable role, and any
+monitor-relevant note is framed as "what this means for the monitor", never in the
+first person. No em dashes anywhere.
+
+Tests (no API key needed): `python tests/test_v2.py`.
+
 ## Notes and caveats
 
 - **Verify endpoints.** See above. The biggest risk is trusting an unconfirmed

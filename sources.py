@@ -212,7 +212,13 @@ def fetch_rss():
     items = []
     for url in cfg["feeds"]:
         try:
-            feed = feedparser.parse(url)
+            # Fetch with an explicit timeout, then hand bytes to feedparser.
+            # feedparser.parse(url) would do its own fetch with NO timeout and can
+            # hang the whole run on a slow feed.
+            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (personal news monitor)"},
+                             timeout=config.REQUEST_TIMEOUT)
+            r.raise_for_status()
+            feed = feedparser.parse(r.content)
             for entry in feed.entries:
                 items.append({
                     "title": entry.get("title", "").strip(),
@@ -224,6 +230,238 @@ def fetch_rss():
         except Exception as e:
             print(f"  [warn] RSS fetch failed for {url}: {e}")
     return items
+
+
+# ---------------------------------------------------------------------------
+# V2 source adapters. Same normalized-dict interface as above, plus optional
+# V2-only keys: "region" (US|EU) and "force_thin" (source is announcement-level).
+# Every fetcher is defensive: failure prints a warning and returns [].
+# ---------------------------------------------------------------------------
+
+def _scrape_links(url, base_origin, source_label, region, max_items,
+                  keep_predicate, force_thin=False):
+    """
+    Generic anchor scraper for V2 HTML pages. Pulls (text, href) pairs the
+    caller's `keep_predicate(text, href)` accepts. Headlines / document titles
+    only, never article or document bodies. Relative hrefs are resolved against
+    `base_origin` (a full scheme+host, e.g. "https://health.ec.europa.eu").
+
+    CAVEAT: these public pages may be JS-rendered; `requests` cannot run JS, so a
+    page that returns few/no items simply yields fewer items (never an error).
+    Publish dates are not reliably available without fetching each item, so date
+    is left blank and the seen-cache prevents repeats.
+    """
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print(f"  [warn] beautifulsoup4 not installed; skipping {source_label}")
+        return []
+
+    headers = {"User-Agent": "Mozilla/5.0 (personal news monitor)"}
+    try:
+        r = requests.get(url, headers=headers, timeout=config.REQUEST_TIMEOUT)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "html.parser")
+    except Exception as e:
+        print(f"  [warn] {source_label} fetch failed: {e}")
+        return []
+
+    items, seen_urls = [], set()
+    for a in soup.find_all("a", href=True):
+        text = a.get_text(strip=True)
+        href = a["href"]
+        if href.startswith("/"):
+            href = base_origin.rstrip("/") + href
+        if not href.startswith("http"):
+            continue
+        if not keep_predicate(text, href):
+            continue
+        if href in seen_urls:
+            continue
+        seen_urls.add(href)
+        items.append({
+            "title": text[:200],
+            "summary": text[:200],       # link text only; never the body
+            "url": href,
+            "source": source_label,
+            "date": "",
+            "region": region,
+            "prequalified": True,        # topically scoped by the page itself
+            "force_thin": force_thin,
+        })
+        if len(items) >= max_items:
+            break
+    return items
+
+
+def fetch_federal_register_ivd():
+    """
+    Targeted Federal Register queries by precise IVD/CLIA phrases (see config). The
+    default agency feed is capped at the 40 newest docs with no topic filter, so it
+    misses substantive IVD regulatory changes older than that. This queries by term
+    so rules / proposed rules / guidances / CLIA + coverage actions are caught, with
+    their real abstracts. Deduped by document number across terms. Not prequalified,
+    so the keyword filter still screens the results.
+    """
+    cfg = config.SOURCES.get("federal_register_ivd", {})
+    if not cfg.get("enabled"):
+        return []
+    since = _since_date(config.LOOKBACK_DAYS)
+    items, seen_docs = [], set()
+    for term in cfg.get("terms", []):
+        params = {
+            "per_page": cfg.get("per_page", 50),
+            "order": "newest",
+            "conditions[term]": term,
+            "conditions[publication_date][gte]": since,
+        }
+        try:
+            r = requests.get(cfg["base_url"], params=params, timeout=config.REQUEST_TIMEOUT)
+            r.raise_for_status()
+            data = r.json()
+        except Exception as e:
+            print(f"  [warn] federal_register_ivd term={term!r} failed: {e}")
+            continue
+        for row in data.get("results", []):
+            doc = row.get("document_number") or row.get("html_url") or ""
+            if doc and doc in seen_docs:
+                continue
+            if doc:
+                seen_docs.add(doc)
+            dtype = (row.get("type") or "").strip()
+            title = (row.get("title") or "").strip()
+            items.append({
+                # Lead with the document type so a reader and the relevance pass can
+                # tell a Rule / Proposed Rule from a routine Notice at a glance.
+                "title": (f"{dtype}: {title}" if dtype else title)[:200],
+                "summary": (row.get("abstract") or "").strip(),
+                "url": row.get("html_url") or "",
+                "source": "Federal Register",
+                "date": row.get("publication_date") or "",
+                "region": cfg.get("region", "US"),
+            })
+    return items
+
+
+def fetch_cap():
+    """
+    CAP public newsroom. Announcement-level only (see config caveat). Every item
+    is force_thin: it signals THAT a checklist edition / accreditation update was
+    announced, not what concretely changed. Membership-gated content is never hit.
+    """
+    cfg = config.SOURCES["cap"]
+    if not cfg.get("enabled"):
+        return []
+    domain = cfg["domain"]
+    interest = ("checklist", "accreditation", "clia", "laboratory", "reimburse",
+                "payment", "regulation", "proficiency", "standard", "coverage",
+                "quality")
+
+    def keep(text, href):
+        if len(text) < 25:
+            return False
+        if domain not in href:
+            return False
+        low = (text + " " + href).lower()
+        return any(k in low for k in interest)
+
+    return _scrape_links(cfg["url"], f"https://www.{domain}", "CAP (newsroom)",
+                         cfg["region"], cfg["max_items"], keep, force_thin=True)
+
+
+def fetch_eu_mdcg():
+    """
+    EU IVDR guidance: MDCG endorsed-documents page. Captures the guidance-document
+    listing (titles + links). The best available public EU IVDR access path.
+    """
+    cfg = config.SOURCES["eu_mdcg"]
+    if not cfg.get("enabled"):
+        return []
+    domain = cfg["domain"]
+
+    def keep(text, href):
+        if len(text) < 8:
+            return False
+        # Only actual endorsed-document downloads ON THE CONFIGURED HOST. Requiring
+        # the domain stops an injected off-host "/document/download" link from being
+        # stored as a trusted "open source" target. This also excludes language
+        # switchers and other site nav. NOTE: the page carries both MDR and IVDR
+        # guidance; the downstream relevance pass narrows to IVD.
+        return domain in href and "/document/download" in href
+
+    return _scrape_links(cfg["url"], f"https://{domain}", "EU MDCG (IVDR guidance)",
+                         cfg["region"], cfg["max_items"], keep)
+
+
+def fetch_eu_presscorner():
+    """
+    EU policy news: European Commission press-corner RSS, filtered to the IVD
+    keyword set. Coarse; off by default. region EU.
+    """
+    cfg = config.SOURCES["eu_presscorner"]
+    if not cfg.get("enabled"):
+        return []
+    try:
+        import feedparser
+    except ImportError:
+        print("  [warn] feedparser not installed; skipping eu_presscorner")
+        return []
+    try:
+        r = requests.get(cfg["url"],
+                         headers={"User-Agent": "Mozilla/5.0 (personal news monitor)"},
+                         timeout=config.REQUEST_TIMEOUT)
+        r.raise_for_status()
+        feed = feedparser.parse(r.content)
+    except Exception as e:
+        print(f"  [warn] eu_presscorner fetch failed: {e}")
+        return []
+
+    items = []
+    for entry in feed.entries[:cfg["max_items"]]:
+        items.append({
+            "title": (entry.get("title") or "").strip(),
+            "summary": (entry.get("summary") or entry.get("title") or "").strip()[:400],
+            "url": entry.get("link", ""),
+            "source": "EU Commission (press)",
+            "date": "",   # RSS pubDate parsing left to the window filter if present
+            "region": cfg["region"],
+            # not prequalified: must pass the IVD keyword filter to survive
+        })
+    return items
+
+
+def fetch_all_v2():
+    """
+    V2 feed: every enabled default source PLUS the V2 adapters. Used only by the
+    `--v2` run. Items carry a `region` (defaulting to US for the legacy sources).
+    """
+    items = []
+    # fetch_federal_register_ivd runs FIRST so that when the same Federal Register
+    # document also comes back from the capped agency feed, the url de-dup below
+    # keeps the term-feed copy, whose title carries the "Rule:"/"Proposed Rule:"
+    # type prefix that the prefer_regulatory_changes pass relies on.
+    ordered = (fetch_federal_register_ivd,
+               fetch_federal_register, fetch_openfda_510k, fetch_openfda_enforcement,
+               fetch_genomeweb, fetch_360dx, fetch_rss,
+               fetch_cap, fetch_eu_mdcg, fetch_eu_presscorner)
+    for fn in ordered:
+        got = [it for it in fn() if _within_window(it)]
+        for it in got:
+            it.setdefault("region", "US")   # legacy sources are all US
+        print(f"  {fn.__name__}: {len(got)} item(s)")
+        items.extend(got)
+
+    # De-dupe by url: the capped agency feed and the targeted IVD term feed can
+    # return the same Federal Register document. Keep the first occurrence.
+    deduped, seen_urls = [], set()
+    for it in items:
+        u = it.get("url", "")
+        if u and u in seen_urls:
+            continue
+        if u:
+            seen_urls.add(u)
+        deduped.append(it)
+    return deduped
 
 
 def _within_window(item):

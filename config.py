@@ -13,7 +13,12 @@ MODEL_FILTER = "claude-haiku-4-5"     # cheap model for the batched relevance pa
 MODEL_DRAFT = "claude-sonnet-4-6"     # stronger model for summarizing + drafting
 
 # ---- Run behavior ----
-LOOKBACK_DAYS = 14     # how far back each run looks. 14 / 21 / 28 = ~2-4 weeks.
+LOOKBACK_DAYS = 14     # how far back the DEFAULT run looks. 14 / 21 / 28 = ~2-4 weeks.
+# The V2 run uses a wider window: regulatory CHANGES (rules, proposed rules,
+# guidances, CLIA/coverage actions) publish less often than device clearances, so
+# a wider net catches them with margin over a weekly cadence. Kept separate so the
+# default run above stays exactly as it was. run_v2 applies this at runtime.
+LOOKBACK_DAYS_V2 = 45
 MAX_DRAFTS = 8         # max posts drafted per run (after relevance ranking)
 REQUEST_TIMEOUT = 30   # seconds, for source HTTP calls
 
@@ -78,7 +83,146 @@ SOURCES = {
         "enabled": False,
         "feeds": [],
     },
+    # ---- V2 sources (used only on the `--v2` run; the default run ignores these) ----
+    # Targeted Federal Register queries by precise IVD/CLIA phrases. The default
+    # agency feed above is capped at the 40 NEWEST FDA+CMS docs with no topic
+    # filter, so substantive IVD regulatory CHANGES (rules, proposed rules,
+    # guidances, CLIA and Medicare coverage/payment actions) that are older than
+    # the newest 40 are invisible to it. Verified: phrase queries surface items the
+    # capped feed misses (a CLIA proposed rule, an IVD device reclassification rule,
+    # the Medicare physician fee schedule). Items carry real abstracts, so the
+    # practitioner read has substantive text to ground in (not thin). Only clean,
+    # high-signal phrases are used; broad free-terms returned off-topic noise. These
+    # are NOT prequalified, so the keyword filter still screens them.
+    "federal_register_ivd": {
+        "enabled": True,
+        "base_url": "https://www.federalregister.gov/api/v1/documents.json",
+        "terms": [
+            "in vitro diagnostic",
+            "companion diagnostic",
+            "Clinical Laboratory Improvement Amendments",
+            "laboratory developed test",
+        ],
+        "per_page": 50,
+        "region": "US",
+    },
+    # CAP (College of American Pathologists) public newsroom. HONEST LIMITATION:
+    # verified fetchable (HTTP 200) but the page is a JS-rendered Sitecore site;
+    # the static HTML gives section/announcement links, NOT dated checklist detail.
+    # So this captures the ANNOUNCEMENT that something changed (a checklist edition,
+    # an accreditation-program update), never the checklist content itself. Every
+    # CAP item is force-flagged thin_source. Membership-gated checklist content is
+    # never fetched. Confirm ToS / robots.txt before relying on it.
+    # DISABLED by default: recon confirmed the public page returns only left-nav /
+    # section links (JS-rendered site), not dated announcements, so it cannot be
+    # usefully automated. Left here as a MANUAL-WATCH note + a working adapter in
+    # case a genuinely itemized public CAP page is pointed at it later. If enabled,
+    # every item is force-thin (announcement-level at best).
+    "cap": {
+        "enabled": False,
+        "url": "https://www.cap.org/about-the-cap/newsroom",
+        "domain": "cap.org",
+        "max_items": 15,
+        "region": "US",
+    },
+    # EU IVDR guidance: the Medical Device Coordination Group (MDCG) endorsed-
+    # documents page on the European Commission health site. VERIFIED fetchable
+    # (HTTP 200, static HTML) with extractable MDCG document links (e.g. "MDCG
+    # 2024-13"). This is the practical, public EU IVDR signal. It is the best
+    # available public access path: EUR-Lex blocks automated access (HTTP 202
+    # anti-bot wall) and EMA retired its public RSS (news list is JS-rendered),
+    # so full legal text and EMA news are NOT automated (manual-watch notes).
+    "eu_mdcg": {
+        "enabled": True,
+        "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en",
+        "domain": "health.ec.europa.eu",
+        "max_items": 25,
+        "region": "EU",
+    },
+    # EU policy news: European Commission press-corner RSS, keyword-filtered.
+    # VERIFIED fetchable (valid dated RSS). Coarse (mostly "Daily News" digests),
+    # so it is OFF by default; enable if you want a wide EU policy net. region EU.
+    "eu_presscorner": {
+        "enabled": False,
+        "url": "https://ec.europa.eu/commission/presscorner/api/rss?language=en",
+        "max_items": 25,
+        "region": "EU",
+    },
 }
+
+# ---- V2 topic lenses (tags applied over the reused feed; NOT new endpoints) ----
+# CMS coverage/reimbursement: most CMS rulemaking already arrives via the Federal
+# Register feed (the CMS agency is already queried above). This is a keyword lens
+# that TAGS those items "CMS", it is not a separate fetch. data.cms.gov exposes a
+# JSON catalog but only statistical datasets (fee schedules, enrollment), not
+# timely coverage actions, and the Medicare Coverage Database (NCD/LCD) is not a
+# clean public feed, so the Federal Register is the verified path for CMS actions.
+CMS_LENS = [
+    "medicare", "medicaid", "cms", "coverage", "reimbursement", "ncd",
+    "national coverage", "local coverage", "lcd", "clinical laboratory fee",
+    "clfs", "physician fee schedule", "coverage determination", "payment",
+]
+# CLIA: a federal program (42 CFR 493) administered by CMS. Implemented as a
+# TOPIC/keyword lens over the Federal Register + CMS items, tagged CLIA. It is
+# NOT a standalone source/API.
+CLIA_LENS = [
+    "clia", "clinical laboratory improvement", "42 cfr 493", "part 493",
+    "laboratory certification", "proficiency testing", "clinical laboratory",
+    "waived test", "certificate of waiver", "laboratory-developed test", "ldt",
+]
+
+# ---- Roles (V2 practitioner read) ----
+# CONFIGURED roles, picked by id. The model may only choose from these ids; any id
+# it invents is dropped in code. "lab tech" maps to the Lab role. See CRA_CONSTRAINT.
+ROLES = {
+    "CDM": {
+        "label": "Clinical Data Management",
+        "scope": "CRFs/eCRFs, EDC builds and edit checks, data management plans, "
+                 "data validation specs, coding/mapping, database locks.",
+    },
+    "ClinOps": {
+        "label": "Clinical Operations",
+        "scope": "study start-up, site management, monitoring oversight, protocol "
+                 "logistics, vendor/EDC coordination, TMF.",
+    },
+    "RA": {
+        "label": "Regulatory Affairs",
+        "scope": "submissions and submission datasets, regulatory strategy, agency "
+                 "correspondence, labeling, registrations, change filings.",
+    },
+    "QA": {
+        "label": "Quality Assurance",
+        "scope": "SOPs, quality system procedures, audits, CAPA, validation "
+                 "documentation, compliance records.",
+    },
+    "Lab": {
+        "label": "Laboratory (incl. lab techs)",
+        "scope": "assay SOPs, instrument/method validation and verification, "
+                 "QC procedures, specimen handling, accreditation/CLIA records.",
+    },
+    "Biostat": {
+        "label": "Biostatistics",
+        "scope": "statistical analysis plans, analysis datasets and derivations, "
+                 "endpoint definitions, coding of demographic/covariate variables.",
+    },
+}
+
+# LOCKED. Content for the CRA/monitor audience must be framed as "what this means
+# for the monitor" and must NEVER imply the author has held the CRA role. CRA is
+# intentionally NOT a pickable role; this constraint is a hard rule in the prompt.
+CRA_CONSTRAINT = (
+    "CRA/monitor framing is LOCKED: if anything is relevant to a CRA/monitor, frame "
+    "it strictly as 'what this likely means for the monitor'. Never write in the "
+    "first person as a CRA and never imply the author has held the CRA role. CRA is "
+    "not one of the selectable roles."
+)
+
+# Lifecycle phases a practitioner action can land in.
+LIFECYCLE_PHASES = ("planning", "execution", "submission")
+
+# Always-appended applicability caveat (code-injected, never model-emitted) so it
+# is present on every practitioner read regardless of what the model returns.
+APPLICABILITY_CAVEAT = "Check applicability to your own studies before acting."
 
 # ---- Output paths ----
 ROOT = Path(__file__).resolve().parent
@@ -86,3 +230,8 @@ DOCS_DIR = ROOT / "docs"
 DRAFTS_JSON = DOCS_DIR / "drafts.json"
 ARCHIVE_DIR = ROOT / "drafts"
 CACHE_FILE = ROOT / "seen.json"
+
+# ---- V2 output paths (kept fully separate; the default run never touches these) ----
+DRAFTS_JSON_V2 = DOCS_DIR / "drafts_v2.json"
+ARCHIVE_DIR_V2 = ROOT / "drafts" / "v2"
+CACHE_FILE_V2 = ROOT / "seen_v2.json"
