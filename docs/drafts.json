@@ -1,36 +1,16 @@
 {
-  "generated": "2026-09-07",
-  "count": 3,
+  "generated": "2026-09-14",
+  "count": 1,
   "drafts": [
     {
-      "title": "Authorization of Emergency Use for Three Animal Drugs for the Prevention and Treatment of New World Screwworm; Availability",
+      "title": "Medical Devices; Clinical Chemistry and Clinical Toxicology Devices; Classification of the Anti-Tumor Necrosis Factor Alpha Monoclonal Antibody Test System for Inflammatory Bowel Disease",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/08/31/2026-17719/authorization-of-emergency-use-for-three-animal-drugs-for-the-prevention-and-treatment-of-new-world",
-      "why": "",
-      "confidence": "low",
-      "summary": "FDA issued three Emergency Use Authorizations for animal drugs to prevent and treat New World screwworm (NWS) infestations in livestock and pets, including cattle, horses, swine, sheep, deer, dogs, and cats. The EUAs were granted to Zoetis, Felix Pharmaceuticals, and Alberta Vet Labs. This followed an August 2025 HHS determination that NWS poses a significant potential public health emergency.",
-      "draft": "FDA issued three Emergency Use Authorizations for animal drugs targeting New World screwworm last week. Covered species include dairy cattle, horses, swine, sheep, deer, dogs, cats, and kittens (quite a list). The HHS determination triggering this happened back in August 2025, so this has been moving through the system for a while. I don't work in veterinary diagnostics, but EUA mechanics are familiar territory, and it's interesting to see them applied to a parasitic outbreak in animals. Also, screwworm myiasis is exactly as unpleasant as it sounds, and I had to look it up to confirm that.",
-      "source_date": "2026-08-31"
-    },
-    {
-      "title": "Rahim Shafa; Denial of Hearing; Final Debarment Order",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/08/31/2026-17659/rahim-shafa-denial-of-hearing-final-debarment-order",
-      "why": "",
-      "confidence": "low",
-      "summary": "FDA permanently debarred Rahim Shafa from providing services to drug application holders, and barred him for 20 years from importing drugs into the US, following federal felony convictions related to drug regulation and controlled substance importation. He requested a hearing but failed to submit sufficient information to support one.",
-      "draft": "Came across this in the Federal Register. FDA permanently debarred a Dr. Rahim Shafa from working with any drug application holder, plus a 20-year ban on importing drugs into the US. The basis was multiple federal felony convictions related to drug regulation and controlled substance importation.\n\nHe requested a hearing. FDA denied it because he didn't file enough information to actually create a basis for one.\n\nI work adjacent to FDA-regulated products so I notice these. The \"denial of hearing\" part is the thing that caught my eye. Asking for a hearing and then not supporting the request seems like it would be a frustrating outcome for everyone involved.",
-      "source_date": "2026-08-31"
-    },
-    {
-      "title": "Product-Specific Guidances; Draft and Revised Draft Guidances for Industry; Availability",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/08/24/2026-17222/product-specific-guidances-draft-and-revised-draft-guidances-for-industry-availability",
-      "why": "",
-      "confidence": "low",
-      "summary": "FDA published a Federal Register notice announcing new and revised draft product-specific guidances for industry. These guidances give recommendations on how to design bioequivalence studies to support abbreviated new drug applications (ANDAs). The process follows a framework FDA established back in 2010.",
-      "draft": "FDA dropped another batch of draft and revised product-specific guidances this week, focused on bioequivalence study design for ANDAs. Not headline news, but if you work in generics or follow the ANDA pathway, these are worth a look. The recommendations cover how BE studies should be structured for specific products. (FDA has been publishing these in batches since 2010, so the process itself is pretty well established at this point.) Mostly flagging it because these tend to quietly shape a lot of downstream work and it's easy to miss them in the Federal Register.",
-      "source_date": "2026-08-24"
+      "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18430/medical-devices-clinical-chemistry-and-clinical-toxicology-devices-classification-of-the-anti-tumor",
+      "why": "FDA classifies new IVD test system (anti-TNF alpha antibody) as Class II with special controls; directly relevant to diagnostic device regulation",
+      "confidence": "high",
+      "summary": "FDA has classified the anti-tumor necrosis factor alpha monoclonal antibody test system for inflammatory bowel disease as class II (special controls). The classification is intended to provide reasonable assurance of safety and effectiveness while reducing regulatory burden and improving patient access to the device.",
+      "draft": "FDA just classified anti-TNF alpha monoclonal antibody test systems for IBD into class II (special controls). That's the regulatory bucket that comes with defined requirements but doesn't require premarket approval the way class III does.\n\nFor people working in IVD, this is the kind of rule that quietly matters. Special controls classifications shape what you have to demonstrate and document before a test gets to a clinician. For therapeutic drug monitoring in IBD, having a clearer regulatory path is useful.\n\nNot a dramatic announcement, just a codified classification. But I find myself reading these things so I know what the framework actually is, not just what people say it is.",
+      "source_date": "2026-09-10"
     }
   ]
 }
