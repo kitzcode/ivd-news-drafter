@@ -4,16 +4,18 @@ import json
 import config
 
 
-def load_seen():
+def load_seen(path=None):
+    path = path or config.CACHE_FILE
     try:
-        with open(config.CACHE_FILE, "r") as f:
+        with open(path, "r") as f:
             return set(json.load(f))
     except (FileNotFoundError, json.JSONDecodeError):
         return set()
 
 
-def save_seen(seen):
-    with open(config.CACHE_FILE, "w") as f:
+def save_seen(seen, path=None):
+    path = path or config.CACHE_FILE
+    with open(path, "w") as f:
         json.dump(sorted(seen), f, indent=2)
 
 

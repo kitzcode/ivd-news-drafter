@@ -38,10 +38,14 @@ def _parse_json(text):
     return json.loads(cleaned.strip())
 
 
-def score_and_select(items, max_drafts=None):
+def score_and_select(items, max_drafts=None, prefer_regulatory_changes=False):
     """
     One batched call. Returns a list of selected items, each annotated with
     'why' (one line) and 'confidence' ('high' | 'low').
+
+    prefer_regulatory_changes (V2): when True, adds a preference for substantive
+    regulatory changes over routine device clearances. Default False keeps the
+    original behavior for the default run.
     """
     if not items:
         return []
@@ -51,13 +55,22 @@ def score_and_select(items, max_drafts=None):
         {"i": idx, "title": it["title"], "summary": it["summary"][:400], "source": it["source"]}
         for idx, it in enumerate(items)
     ]
+    preference = ""
+    if prefer_regulatory_changes:
+        preference = (
+            "\n\nWhen choosing, PREFER substantive regulatory changes (rules, proposed "
+            "rules, guidances, reclassifications, and CLIA or Medicare coverage/payment "
+            "actions) over routine 510(k) device clearances. Include the most notable "
+            "clearances too, but do not fill every slot with clearances when regulatory "
+            "changes are present."
+        )
     prompt = (
         "You are screening news items for an IVD / diagnostics / regulatory "
         "professional who wants to post about the most relevant ones on LinkedIn.\n\n"
         f"From the list below, pick at most {max_drafts} items that are genuinely "
         "relevant to in-vitro diagnostics, point-of-care testing, CLIA/lab regulation, "
         "or FDA diagnostic device actions. Drop near-duplicates and anything off-topic. "
-        "If nothing is clearly relevant, return fewer (or none).\n\n"
+        "If nothing is clearly relevant, return fewer (or none)." + preference + "\n\n"
         "Return ONLY a JSON array, no prose, each element:\n"
         '{"i": <index>, "why": "<one short line on why it matters>", '
         '"confidence": "high" | "low"}\n\n'
