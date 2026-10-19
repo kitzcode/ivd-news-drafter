@@ -1,26 +1,16 @@
 {
-  "generated": "2026-10-12",
-  "count": 2,
+  "generated": "2026-10-19",
+  "count": 1,
   "drafts": [
     {
-      "title": "Clinical Laboratory Improvement Amendments of 1988 (CLIA); Virtual Access, Gynecologic Cytology Proficiency Testing (PT), Personnel Qualifications, and Other Changes",
+      "title": "Authorization of Emergency Use for Four Animal Drugs for the Prevention and Treatment of New World Screwworm; Availability",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/10/08/2026-20613/clinical-laboratory-improvement-amendments-of-1988-clia-virtual-access-gynecologic-cytology",
-      "why": "Direct CLIA regulatory update on virtual access, cytology PT, and personnel qualifications\u2014core compliance topic",
-      "confidence": "high",
-      "summary": "CMS has proposed updates to CLIA regulations that would allow virtual access under a primary lab's certificate (except for cytology), permit digital images for gynecologic cytology proficiency testing, and make changes to personnel qualifications and several reporting requirements. The rule is aimed at modernizing oversight while addressing workforce shortages.",
-      "draft": "CMS dropped a proposed CLIA rule that caught my eye this week. The big-ish thing: virtual access would be allowed under the primary testing lab's certificate (cytology is carved out, which makes sense given the proficiency testing nuances). Digital images for gynecologic cytology PT is also in there, which has been a long time coming given how the rest of lab medicine has moved.\n\nPersonnel qualification changes too, plus various reporting and certificate updates. The workforce shortage framing is woven through the whole thing, which is at least honest about why some of this is moving now.\n\nI'll be reading the personnel section closely. That's usually where the details get interesting (or complicated).",
-      "source_date": "2026-10-08"
-    },
-    {
-      "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the High Throughput DNA Sequencing for Hereditary Cancer Predisposition Assessment Test System",
-      "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/10/06/2026-20443/medical-devices-immunology-and-microbiology-devices-classification-of-the-high-throughput-dna",
-      "why": "FDA classification of NGS-based hereditary cancer test as Class II device\u2014key regulatory action for genetic diagnostics",
-      "confidence": "high",
-      "summary": "FDA is classifying high throughput DNA sequencing systems used for hereditary cancer predisposition assessment as Class II devices, subject to special controls. The agency says this classification provides reasonable assurance of safety and effectiveness while reducing regulatory burden and improving patient access.",
-      "draft": "FDA just classified high throughput DNA sequencing for hereditary cancer predisposition assessment as Class II (special controls). From a regulatory standpoint, that's a meaningful landing spot for this kind of test. Class II with special controls means the agency thinks the risk is manageable with defined guardrails, rather than requiring the full premarket approval process.\n\nI find these classification decisions interesting to follow. The special controls are where the real detail lives, and I'll be reading through what they actually require. (That part is usually where the practical implications for test developers show up.)",
-      "source_date": "2026-10-06"
+      "url": "https://www.federalregister.gov/documents/2026/10/15/2026-21084/authorization-of-emergency-use-for-four-animal-drugs-for-the-prevention-and-treatment-of-new-world",
+      "why": "",
+      "confidence": "low",
+      "summary": "FDA issued four Emergency Use Authorizations for animal drugs to prevent or treat New World screwworm infestations in livestock, pets, and some wildlife. The EUAs cover products from Elanco, Zoetis, Bimeda, and Sergeant's, addressing species from cattle and sheep to dogs, cats, and captive cervids. This follows an HHS determination in August 2025 that NWS poses a significant potential public health emergency.",
+      "draft": "Four animal drug EUAs for New World screwworm just dropped in the Federal Register. Prevention and treatment, covering livestock, pets, and some captive wildlife. Four different companies, each with their own authorized product and conditions of use.\n\nI work adjacent to regulatory submissions and clinical data, so the EUA pathway is familiar to me on the human side. Seeing it applied to a screwworm outbreak (and extended to dogs, cats, bison, Sonoran pronghorn) is a good reminder of how much of the same regulatory infrastructure runs underneath veterinary and human health. The species list alone is a lot to track.",
+      "source_date": "2026-10-15"
     }
   ]
 }
