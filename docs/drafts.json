@@ -1,16 +1,16 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-11-02",
   "count": 1,
   "drafts": [
     {
-      "title": "Authorization of Emergency Use for Four Animal Drugs for the Prevention and Treatment of New World Screwworm; Availability",
+      "title": "Medical Devices; Radiology Devices; Classification of the Radiology Software for Referral of Findings Related to Fibrotic Lung Disease",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/10/15/2026-21084/authorization-of-emergency-use-for-four-animal-drugs-for-the-prevention-and-treatment-of-new-world",
-      "why": "",
-      "confidence": "low",
-      "summary": "FDA issued four Emergency Use Authorizations for animal drugs to prevent or treat New World screwworm infestations in livestock, pets, and some wildlife. The EUAs cover products from Elanco, Zoetis, Bimeda, and Sergeant's, addressing species from cattle and sheep to dogs, cats, and captive cervids. This follows an HHS determination in August 2025 that NWS poses a significant potential public health emergency.",
-      "draft": "Four animal drug EUAs for New World screwworm just dropped in the Federal Register. Prevention and treatment, covering livestock, pets, and some captive wildlife. Four different companies, each with their own authorized product and conditions of use.\n\nI work adjacent to regulatory submissions and clinical data, so the EUA pathway is familiar to me on the human side. Seeing it applied to a screwworm outbreak (and extended to dogs, cats, bison, Sonoran pronghorn) is a good reminder of how much of the same regulatory infrastructure runs underneath veterinary and human health. The species list alone is a lot to track.",
-      "source_date": "2026-10-15"
+      "url": "https://www.federalregister.gov/documents/2026/10/30/2026-22180/medical-devices-radiology-devices-classification-of-the-radiology-software-for-referral-of-findings",
+      "why": "FDA classification order for radiology software device; directly relevant to diagnostic device regulation and FDA 510(k) pathway",
+      "confidence": "high",
+      "summary": "FDA has classified AI/software tools that flag findings related to fibrotic lung disease on radiology images as Class II medical devices (special controls). The agency says this classification provides reasonable assurance of safety and effectiveness while reducing regulatory burden and improving patient access.",
+      "draft": "FDA just classified radiology software that flags fibrotic lung disease findings as Class II (special controls). Not cleared, not de novo \u2014 classified, which means there's now a defined regulatory home for this device type with specific controls attached.\n\nFibrotic lung disease is notoriously tricky to catch early, and the read burden on radiologists is real. So software that helps surface those findings has obvious appeal.\n\nI work adjacent to this space (diagnostics, clinical data, software), and mostly what I notice is that \"reduces regulatory burden\" doing a lot of work in that Federal Register language. We'll see what the special controls actually require.",
+      "source_date": "2026-10-30"
     }
   ]
 }
