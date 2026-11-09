@@ -1,16 +1,16 @@
 {
-  "generated": "2026-11-02",
+  "generated": "2026-11-09",
   "count": 1,
   "drafts": [
     {
-      "title": "Medical Devices; Radiology Devices; Classification of the Radiology Software for Referral of Findings Related to Fibrotic Lung Disease",
+      "title": "Recommendations for Reducing the Risk of Transfusion-Transmitted Hepatitis B Virus; Guidance for Industry; Availability",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/10/30/2026-22180/medical-devices-radiology-devices-classification-of-the-radiology-software-for-referral-of-findings",
-      "why": "FDA classification order for radiology software device; directly relevant to diagnostic device regulation and FDA 510(k) pathway",
+      "url": "https://www.federalregister.gov/documents/2026/11/03/2026-22369/recommendations-for-reducing-the-risk-of-transfusion-transmitted-hepatitis-b-virus-guidance-for",
+      "why": "FDA guidance on hepatitis B virus testing for blood products\u2014directly relevant to IVD testing requirements and blood bank regulations.",
       "confidence": "high",
-      "summary": "FDA has classified AI/software tools that flag findings related to fibrotic lung disease on radiology images as Class II medical devices (special controls). The agency says this classification provides reasonable assurance of safety and effectiveness while reducing regulatory burden and improving patient access.",
-      "draft": "FDA just classified radiology software that flags fibrotic lung disease findings as Class II (special controls). Not cleared, not de novo \u2014 classified, which means there's now a defined regulatory home for this device type with specific controls attached.\n\nFibrotic lung disease is notoriously tricky to catch early, and the read burden on radiologists is real. So software that helps surface those findings has obvious appeal.\n\nI work adjacent to this space (diagnostics, clinical data, software), and mostly what I notice is that \"reduces regulatory burden\" doing a lot of work in that Federal Register language. We'll see what the special controls actually require.",
-      "source_date": "2026-10-30"
+      "summary": "FDA has finalized guidance on reducing transfusion-transmitted hepatitis B virus risk. It consolidates and supersedes multiple older documents going back to 1987, covering testing recommendations for whole blood, blood components, and source plasma. The final guidance updates a draft from July 2025.",
+      "draft": "FDA just finalized guidance on reducing transfusion-transmitted hepatitis B virus risk in blood and blood components (including Source Plasma).\n\nWhat catches my eye: this one document supersedes guidance and memos going all the way back to 1987. Some of those have been sitting as the operative reference for blood establishments for a long time.\n\nConsolidation like this is genuinely useful from a practical standpoint. Fewer documents to track, clearer current expectations. (Though I always wonder how long it takes the SOPs and training materials downstream to actually catch up.)",
+      "source_date": "2026-11-03"
     }
   ]
 }
