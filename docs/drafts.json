@@ -1,16 +1,36 @@
 {
-  "generated": "2026-11-16",
-  "count": 1,
+  "generated": "2026-11-23",
+  "count": 3,
   "drafts": [
     {
-      "title": "Validation of Certain In Vitro Diagnostic Devices for Emerging Pathogens During a Section 564 Declared Emergency; Guidance for Industry and Food and Drug Administration Staff; Availability",
+      "title": "Product-Specific Guidances; Draft and Revised Draft Guidances for Industry; Availability",
       "source": "Federal Register",
-      "url": "https://www.federalregister.gov/documents/2026/11/10/2026-22883/validation-of-certain-in-vitro-diagnostic-devices-for-emerging-pathogens-during-a-section-564",
-      "why": "FDA guidance on IVD validation for emerging pathogens under emergency use authorizations\u2014directly relevant to diagnostic device regulation and emergency response protocols.",
-      "confidence": "high",
-      "summary": "FDA has finalized a guidance document on how IVD manufacturers should validate tests for emerging pathogens during a Section 564 public health emergency declaration. It covers validation recommendations for pre-EUA submissions, EUA requests, and tests offered under enforcement discretion policies. A template accompanies the guidance.",
-      "draft": "FDA just finalized guidance on IVD validation for emerging pathogens during a Section 564 declared emergency. It covers what test data and information should look like for pre-EUA submissions, EUA requests, and enforcement discretion scenarios, and comes with a template.\n\nNot exactly beach reading, but if you work in diagnostics and ever had to figure out validation requirements mid-emergency (while everything else was also on fire), having this written down in one place is genuinely useful.\n\nI'll be reading the template first, honestly.",
-      "source_date": "2026-11-10"
+      "url": "https://www.federalregister.gov/documents/2026/11/20/2026-23692/product-specific-guidances-draft-and-revised-draft-guidances-for-industry-availability",
+      "why": "",
+      "confidence": "low",
+      "summary": "FDA announced the availability of new draft and revised draft product-specific guidances for industry. These guidances provide recommendations on designing bioequivalence studies to support abbreviated new drug applications (ANDAs). The process follows the framework FDA established back in 2010 for making product-specific guidances publicly available.",
+      "draft": "FDA dropped another batch of draft product-specific guidances this week, the ones that spell out how bioequivalence studies should be designed for specific products when you're filing an ANDA.\n\nNot the flashiest regulatory update, but if you work in generics development or CMC, these matter. The recommendations are pretty granular (study design, endpoints, that kind of thing), and getting them wrong early is expensive.\n\nI mainly flagged it because it's easy to miss a new batch in the Federal Register noise. Worth a scan if any of your products are in scope.",
+      "source_date": "2026-11-20"
+    },
+    {
+      "title": "Revocation of the Color Additive Listing for Use of Orange B on Casings or Surfaces of Frankfurters and Sausages; Confirmation of Effective Date",
+      "source": "Federal Register",
+      "url": "https://www.federalregister.gov/documents/2026/11/13/2026-23112/revocation-of-the-color-additive-listing-for-use-of-orange-b-on-casings-or-surfaces-of-frankfurters",
+      "why": "",
+      "confidence": "low",
+      "summary": "FDA has confirmed the effective date of September 8, 2026, for a rule revoking the approval of Orange B, a color additive that had been permitted for use on the casings or surfaces of frankfurters and sausages. The final order was published in the Federal Register on July 23, 2026.",
+      "draft": "FDA confirmed the revocation of Orange B as a permitted color additive for frankfurter and sausage casings, effective September 8, 2026.\n\nI'll be honest, I had no idea Orange B was a thing that existed and was used on hot dog casings. Apparently it was, and now it isn't.\n\nNot a dramatic story, just a quiet regulatory housekeeping item that I noticed while keeping tabs on food additive listings. (The kind of thing you start tracking when your work touches product labeling and ingredient data, and then you can't stop.)",
+      "source_date": "2026-11-13"
+    },
+    {
+      "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
+      "source": "Federal Register",
+      "url": "https://www.federalregister.gov/documents/2026/11/09/2026-22743/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
+      "why": "",
+      "confidence": "low",
+      "summary": "CMS published its final rule for CY 2027 physician fee schedule and related Medicare Part B payment policies. It covers updates to how physicians and labs are paid, Medicare Shared Savings Program rules, Quality Payment Program changes, and codification of Inflation Reduction Act provisions, among other policy areas.",
+      "draft": "The CY 2027 Physician Fee Schedule final rule dropped. It's a broad one: payment updates across Part B, lab fee schedule changes, Medicare Shared Savings Program requirements, Quality Payment Program updates, interoperability program policies, and more IRA codification.\n\nI work adjacent to the clinical lab and diagnostics side of this, so the Clinical Laboratory Fee Schedule section is usually where I start. (Then I spend a while figuring out what actually changed versus what just got reorganized.)\n\nFederal Register PDFs remain a true test of patience.",
+      "source_date": "2026-11-09"
     }
   ]
 }
